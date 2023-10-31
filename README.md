@@ -15,4 +15,4 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory
 也因為這屆出的我自己感覺有比較難所以我看90名之後的基本上都有兩次以上lab沒交  
 但換句話說應該可以更加佐證你每一個lab都有交的話就會過的這個說法  
 阿後面如果配分制度有改我就不能肯定了只能給大家當作參考一下  
-![Image text]([https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png](https://github.com/GlenChenPo/Pictures/blob/main/2de%E5%89%9B%E9%81%8E.png)https://github.com/GlenChenPo/Pictures/blob/main/2de%E5%89%9B%E9%81%8E.png)
+![Image]([https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png](https://github.com/GlenChenPo/Pictures/blob/main/2de%E5%89%9B%E9%81%8E.png)https://github.com/GlenChenPo/Pictures/blob/main/2de%E5%89%9B%E9%81%8E.png)
