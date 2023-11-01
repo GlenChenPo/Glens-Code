@@ -1,6 +1,6 @@
 第一個Lab是我第一次跑verilog code  
 可能之前寒假有上tsri開的verilog課程lab1很快就上手always blocks的概念等等  
-iclab一開始的lab都很簡單  
+iclab一開始的 lab 都很簡單  
 大概會從lab3開始急轉變難  
 
 從lab1學會基礎
