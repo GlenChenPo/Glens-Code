@@ -1,0 +1,1 @@
+set_false_path -from clk1 -to clk2
