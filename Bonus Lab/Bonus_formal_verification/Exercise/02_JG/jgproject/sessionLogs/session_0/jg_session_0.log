@@ -1,0 +1,1778 @@
+# ----------------------------------------
+# JasperGold Version Info
+# tool      : JasperGold 2021.03
+# platform  : Linux 2.6.32-696.el6.x86_64
+# version   : 2021.03 FCS 64 bits
+# build date: 2021.03.23 02:50:43 UTC
+# ----------------------------------------
+# started   : 2022-05-15 10:28:24 CST
+# hostname  : ee03.ed415
+# pid       : 3992
+# arguments : '-label' 'session_0' '-console' '//127.0.0.1:42305' '-style' 'windows' '-data' 'AAAAVHicY2RgYLCp////PwMYMFcBCQEGHwZfhiAGVyDpzxAGpOGA8QGUYcMI4gExH0MRQylDHoMeQwlDMkMOSA4AEIAKoQ==' '-proj' '/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jgproject/sessionLogs/session_0' '-init' '-hidden' '/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jgproject/.tmp/.initCmds.tcl' 'run.tcl'
+
+Any disclosure about the Cadence Design Systems software or its use
+model to any third party violates the written Non-Disclosure Agreement
+between Cadence Design Systems, Inc. and the customer.
+
+THIS SOFTWARE CONTAINS CONFIDENTIAL INFORMATION AND TRADE SECRETS OF
+CADENCE DESIGN SYSTEMS, INC. USE, DISCLOSURE, OR REPRODUCTION IS
+PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF CADENCE
+DESIGN SYSTEMS, INC.
+
+Copyright (C) 2000-2021 Cadence Design Systems, Inc. All Rights
+Reserved.  Unpublished -- rights reserved under the copyright laws of
+the United States.
+
+This product includes software developed by others and redistributed
+according to license agreement. See doc/third_party_readme.txt for
+further details.
+
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c) (1) (ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c) (1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+
+                          Cadence Design Systems, Inc. 
+                          2655 Seely Avenue
+                          San Jose, CA 95134
+                          Phone: 408.943.1234
+
+For technical assistance visit http://support.cadence.com.
+
+JasperGold Apps Analysis Session - /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jgproject/sessionLogs/session_0
+
+WARNING (WG017): [session]: The system's locale is "ANSI_X3.4-1968", which is not UTF-8. Non-ASCII characters might not be handled correctly.
+WARNING (WG017): [jg_console]: The system's locale is "ANSI_X3.4-1968", which is not UTF-8. Non-ASCII characters might not be handled correctly.
+INFO: successfully checked out licenses "jasper_pint" and "jasper_fao".
+INFO: reading configuration file "/RAID2/COURSE/iclab/iclab093/.config/jasper/jaspergold.conf".
+% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+% 
+% jasper_scoreboard_3 -init
+% 
+% set ABVIP_INST_DIR /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+% #set ABVIP_INST_DIR /grid/avs/install/vipcat/11.3/latest/tools/abvip
+% abvip -set_location $ABVIP_INST_DIR
+% set_visualize_auto_load_debugging_tables on
+% 
+% analyze -sv09  -f jg.f
+INFO (INL011): Processing "-f" file "/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jg.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/jasper_package/jasper_scoreboard_3_pkg.ve'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/Usertype_PKG.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/bridge.sv'
+[WARN (VERI-1208)] ../01_RTL/bridge.sv(134): literal value 'h1000_0000 truncated to fit in 8 bits
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/INF.sv'
+% analyze -sv09  top.sv
+[-- (VERI-1482)] Analyzing Verilog file 'top.sv'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_core' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_core.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_sync' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_sync.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tag' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tag.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_symbol' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_symbol.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_datacnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_datacnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_txcnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_txcnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tracker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tracker.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_latency_counter' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_latency_counter.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3.sdb'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv(35): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(30): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/amba4_defines.svh'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(1839): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/abviplib.v'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(2372): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/version.v'
+[-- (VERI-1489)]       Resolving module 'axi4_slave'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_csr_extended_checker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker/work/jasper_csr_extended_checker.sdb'
+% elaborate -top top -no_precondition -extract_covergroups
+INFO (ISW003): Top module name is "top".
+[INFO (HIER-8002)] top.sv(152): Disabling old hierarchical reference handler
+[WARN (VERI-1927)] top.sv(60): port 'awid' remains unconnected for this instance
+[WARN (VERI-2435)] top.sv(122): port 'incoming_clk' is not connected on this instance
+[WARN (VERI-1927)] top.sv(122): port 'incoming_selected' remains unconnected for this instance
+[INFO (VERI-1018)] jasper_scoreboard_3.v(1092): compiling module 'jasper_scoreboard_3_txcnt:(IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,ORDERING=IN_ORDER)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(1119): net 'tracking_start[0]' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(260): compiling module 'jasper_scoreboard_3_core:(ORDERING=IN_ORDER,IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,INTEGRITY_CHECK=1'b1,OVERFLOW_CHECK=1'b1,COVER_COUNT=32'b010,LATENCY_CHECK=1'b0,LATENCY_HALT_MODE=2'b0,XPROP_CTRL_CHECK=1'b0,XPROP_DATA_CHECK=1'b0,LITE_CHECKS=1'b0,FIRST_CHECKS=1'b0,FIRST_CHECKS_COUNT=32'b01,MODEL=TXCNT)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(310): net 'txcnt_latency_check_error' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(311): net 'txcnt_latency_cnt_stimulated' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(12): compiling module 'jasper_scoreboard_3:(CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(67): net 'global_clock' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(68): net 'global_reset' does not have a driver
+[INFO (VERI-1018)] top.sv(20): compiling module 'top'
+[INFO (VERI-1018)] ../01_RTL/bridge.sv(21): compiling module 'bridge:(inf=INF_bridge_inf)'
+[INFO (VERI-1018)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(162): compiling module 'axi4_slave:(ADDR_WIDTH=8,DATA_WIDTH=32,MAX_PENDING=1,MAX_PENDING_WR=1,MAX_PENDING_RD=1)'
+[WARN (VERI-1330)] top.sv(39): actual bit length 17 differs from formal bit length 8 for port 'awaddr'
+[WARN (VERI-1330)] top.sv(52): actual bit length 17 differs from formal bit length 8 for port 'araddr'
+[WARN (VERI-9028)] top.sv(36): missing/open ports on instance slave of module axi4_slave
+[WARN (VERI-9028)] top.sv(115): missing/open ports on instance sc_r of module jasper_scoreboard_3
+[WARN (VDB-1002)] top.sv(25): net 'SystemClock' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(23): net 'inf.rst_n' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(36): net 'inf.C_addr[6]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(37): net 'inf.C_data_w[31]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(39): net 'inf.C_in_valid' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(41): net 'inf.C_r_wb' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AR_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.R_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AW_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.W_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.B_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.R_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.B_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(46): net 'inf.R_DATA[31]' does not have a driver
+[WARN (VDB-1013)] top.sv(60): input port 'awid[1]' is not connected on this instance
+[WARN (VDB-1013)] top.sv(122): input port 'incoming_clk' is not connected on this instance
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          9 (3 packages)
+  Single run mode                         On
+  Pipeline                                On (5 pipelined netlists)
+  Late hierarchical reference connection  Off
+  Number of analyzed Verilog modules      18 (9 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7534): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7544): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7575): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9835): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9847): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9854): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9864): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9872): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9903): Weakly embedded unbounded sequence in a ASSERT directive.
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+top
+[<embedded>] % 
+[<embedded>] % clock SystemClock
+[<embedded>] % reset ~inf.rst_n
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "inf.rst_n".
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % 
+[<embedded>] % # ------------------------ LAN Version ---------------------------
+[<embedded>] % assert -disable *prot* *len* *user* *lock* *qos* *region* *cache* *last* *size* *burst* *awid* *arid*
+<embedded>::top.slave.genStableChks.genStableChksRDInf.master_ar_arprot_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awprot_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlen_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlen_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arlen_less_than_TRANS_COUNT <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_arlen <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_fixed_arlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awlen_less_than_maxlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_fixed_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.genDbcAw.genAwlenMaxLenGr1.master_aw_w_awlen_exact_len_dbc <embedded>::top.slave.genPropChksWRInf.genWlastMaxlenGr1.master_w_aw_wlast_exact_len <embedded>::top.slave.genPropChksWRInf.genDbcW.genAXI4Full.master_w_aw_wlast_exact_len_dbc <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_aruser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awuser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wuser_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlock_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlock_stable <embedded>::top.slave.genNoExChks.master_ar_arlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genNoExChks.master_aw_awlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arqos_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awqos_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arregion_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awregion_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arcache_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awcache_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arcache_no_ra_wa_for_uncacheable <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awcache_no_ra_wa_non_modifiable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wlast_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arsize_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awsize_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arsize_lte_datawidth <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awsize_lte_datawidth <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arburst_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awburst_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arburst_no_reserved <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awburst_no_reserved <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awid_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arid_stable
+[<embedded>] % assume {slave.awsize==4}               -name slave_awsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_awsize
+[<embedded>] % assume {slave.awid==0}                 -name slave_awid
+WARNING (WNL023): Expression sizes mismatch.
+slave_awid
+[<embedded>] % assume {slave.wid==0}                  -name slave_wid
+WARNING (WNL023): Expression sizes mismatch.
+slave_wid
+[<embedded>] % assume {slave.wlast==1}                -name slave_wlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_wlast
+[<embedded>] % assume {slave.arsize==4}               -name slave_arsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_arsize
+[<embedded>] % assume {slave.arid==1}                 -name slave_arid
+WARNING (WNL023): Expression sizes mismatch.
+slave_arid
+[<embedded>] % assume {slave.rlast==1}                -name slave_rlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_rlast
+[<embedded>] % assume {slave.awburst==0}              -name slave_awburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_awburst_fixed
+[<embedded>] % assume {slave.arburst==0}              -name slave_arburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_arburst_fixed
+[<embedded>] % assume {&slave.wstrb==1}               -name slave_wstrb
+WARNING (WNL023): Expression sizes mismatch.
+slave_wstrb
+[<embedded>] % 
+[<embedded>] % # Good For TA
+[<embedded>] % #get_needed_assumption -property {<embedded>::top.sc_w.genblk6.core.genblk7.COVER[1].data_in}
+[<embedded>] % prove -bg -all
+Ncustom1: Custom engine code is hT3Ng7hPPfiYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSl+CwjiTMAQA
+AMcustom2: Custom engine code is hT3Ng7hP/feYQOTDZ3qhYOwGAM51eA+J/FjkM5shLioAsqhgLR4Ft+O1BuKG6ilQ83B9tLXSmmqwm7g9AQA
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 37 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 448 of 451 design flops, 0 of 4 design latches, 448 of 756 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+AMcustom3: Custom engine code is hT3NE7hP/2Fz2XrVSbG0RDiSlOmcEY54dTxWvdDsI3//MxFcPzdQEJVlimlZshtLUKCpt0qXHu9EQAivsvCTP5Pi2s9EBccXnc85FrzRRX45WcXC5XpA9kyHdIYmOxUqsRrN5ntdfkwHRnO7f82Dn4pCsne09HV19Yd/o8VzV0c8nka+2MMhbNDEdLGC4SmTi8oNy00Nn40QJnMevDlPY3jIAQA
+Ncustom4: Custom engine code is hT3OXrhPByJp3TrFSTLhUmMH4KVtJgmTCnNDF46yMXOKY48m4LS5nE7yBzFjA7kDuwO/GhGUpEPiky3p3wmPn3dJZHxFMsafSoObRzSC+tn7sEY0WbTdZ/FV4hL3MYH/b1CIUvXSWR4wqEoVLsmMOD4xIPT4lI1LO6ZCO7PnnWQuLwetnvKlrXx6wCW/A+x+enqslg1YPobi4wEF/EvbzOvcTYdJvl2s4H2yZg2b2ofAVN5WvhWk1HoBAA
+Ncustom5: Custom engine code is hT3NR7hPByFp3TrFSTLhUmMH4KWtJglTyV/c51BHEeZWamnJv767nE6PCak26bd3gf3XGN3rIRheufhDieCJQVISo+gNYUKhiUedBKGtsP/a18svAnlMJZudHxDFwK5ufsyoxsIyiAeSY2oi3tEuoDHr5gw42DFKAG3PqO3CEsl8Azzdt3pl5nGA1Ifv2H02eYsFzWb/nfp8PMb3F0krE/EgBcm8TD9Div8BAA
+Tricustom6: Custom engine code is hT3Nu7hP3fiYQADBZnYcglNHp9bfd7EOeniIqP/ji8sGLQu8yhsFO+wxJ+O+R0bU8g/IewXFomyos+viQnWc2xYNYmMqpo3i40O7DaZR7qfp4YqNx26KRvQ/qx0BAA
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.genAXI4.assert_param_DATA_WIDTH_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_ALL_STROBES_HIGH_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_MAX_WAIT_CYCLES_ON_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_READONLY_INTERFACE_WRITEONLY_INTERFACE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_with_AXI4_LITE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genLiveMasterChksRReady.master_r_rready_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genDBCAW.master_aw_awvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genliveW.master_w_wvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genLiveMasterChksBReady.master_b_bready_eventually" was proven in 0.00 s.
+0: Found proofs for 12 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.005s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.00 s]
+0.0.N: Proof Simplification Iteration 5	[0.01 s]
+0.0.N: Proof Simplification Iteration 6	[0.01 s]
+0.0.N: Proof Simplification Iteration 7	[0.01 s]
+0.0.N: Proof Simplification Iteration 8	[0.01 s]
+0.0.N: Proof Simplification Iteration 9	[0.01 s]
+0.0.N: Proof Simplification Iteration 10	[0.01 s]
+0.0.N: Proof Simplification Iteration 11	[0.01 s]
+0.0.N: Proof Simplification Iteration 12	[0.01 s]
+0.0.N: Proof Simplification Iteration 13	[0.02 s]
+0.0.N: Proof Simplification Iteration 14	[0.02 s]
+0.0.N: Proof Simplification Iteration 15	[0.02 s]
+0.0.N: Proof Simplification Iteration 16	[0.02 s]
+0.0.N: Proof Simplification Iteration 17	[0.02 s]
+0.0.N: Proof Simplification Iteration 18	[0.02 s]
+0.0.N: Proof Simplification Iteration 19	[0.02 s]
+0.0.N: Proof Simplification Iteration 20	[0.03 s]
+0.0.N: Proof Simplification Iteration 21	[0.03 s]
+0.0.N: Proof Simplification Iteration 22	[0.03 s]
+0.0.N: Proof Simplification Iteration 23	[0.03 s]
+0.0.N: Proof Simplification Iteration 24	[0.03 s]
+0.0.N: Proof Simplification Iteration 25	[0.03 s]
+0.0.N: Proof Simplification Iteration 26	[0.03 s]
+0.0.N: Proof Simplification Iteration 27	[0.04 s]
+0.0.N: Proof Simplification Iteration 28	[0.04 s]
+0.0.N: Proof Simplification Iteration 29	[0.04 s]
+0.0.N: Proof Simplification Iteration 30	[0.04 s]
+0.0.N: Proof Simplification Iteration 31	[0.04 s]
+0.0.N: Proof Simplification Iteration 32	[0.04 s]
+0.0.N: Proof Simplification Iteration 33	[0.04 s]
+0.0.N: Proof Simplification Iteration 34	[0.04 s]
+0.0.N: Proof Simplification Iteration 35	[0.04 s]
+0.0.N: Proof Simplification Iteration 36	[0.05 s]
+0.0.N: Proof Simplification Iteration 37	[0.05 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wstrb_stable" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksRDInf.master_rst_arvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_awvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_wvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.06 s
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 21
+0: ProofGrid is starting event handling
+0.0.N: Proofgrid shell started at 4050@ee03(local) jg_3992_ee03_1
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "top.assert_invalid_i"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.Hp: Proofgrid shell started at 4051@ee03(local) jg_3992_ee03_1
+0.0.N: Trace Attempt  5	[0.03 s]
+0.0.N: Trace Attempt  1	[0.03 s]
+0.0.N: Trace Attempt  2	[0.03 s]
+0.0.N: Trace Attempt  3	[0.03 s]
+0.0.Hp: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  5	[0.03 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.03 s]
+INFO (IPF057): 0.0.N: The property "top.assert_invalid_i" was proven in 0.03 s.
+0.0.N: Stopped processing property "top.assert_invalid_i"	[0.03 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.Hp: Lemmas used(1): ?5
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksRDInf.assert_ar_rd_tbl_no_overflow" was proven in 0.01 s.
+0.0.Hp: Lemmas used(1): ?5
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksWRInf.assert_aw_wr_tbl_no_overflow" was proven in 0.01 s.
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable" in 0.04 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable" in 0.04 s by the incidental trace "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable".
+INFO (IPF047): 0.0.N: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[0]" was covered in 1 cycles in 0.04 s by the incidental trace "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable".
+0.0.Hp: Lemmas used(1): ?5
+0.0.Hp: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksWRInf.assert_w_wr_tbl_no_overflow" was proven in 0.04 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.04 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.Hp: Trace Attempt  1	[0.02 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.02 s]
+INFO (IPF047): 0.0.Hp: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[1]" was covered in 1 cycles in 0.04 s.
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksWRInf.genNoWrTblOverflow.master_aw_wr_tbl_no_overflow" in 0.00 s by the incidental trace "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable".
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow" in 0.00 s by the incidental trace "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable".
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.02 s]
+0.0.N: Trace Attempt  5	[0.03 s]
+0.0.N: Trace Attempt  1	[0.03 s]
+0.0.N: Trace Attempt  2	[0.03 s]
+0.0.N: Trace Attempt  3	[0.03 s]
+0.0.N: Trace Attempt  4	[0.03 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.03 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable" was proven in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.02 s]
+0.0.N: Trace Attempt  2	[0.02 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.02 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable" was proven in 0.02 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.02 s].
+0.0.N: Starting proof for property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.Hp: Trace Attempt  2	[0.08 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.Ht: Proofgrid shell started at 4064@ee03(local) jg_3992_ee03_1
+0.0.Ht: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  1	[0.03 s]
+0.0.N: Trace Attempt  2	[0.03 s]
+0.0.N: Trace Attempt  3	[0.04 s]
+0.0.N: Trace Attempt  4	[0.04 s]
+0.0.Ht: Trace Attempt  1	[0.01 s]
+0.0.Ht: Trace Attempt  2	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.04 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow" was proven in 0.04 s.
+0.0.N: Stopped processing property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.04 s].
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.Ht: Trace Attempt  3	[0.01 s]
+0.0.Ht: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_in" was covered in 3 cycles in 0.01 s.
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.Ht: Trace Attempt  4	[0.02 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.Ht: A trace with 4 cycles was found. [0.02 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_out" was covered in 4 cycles in 0.02 s.
+0.0.Ht: Trace Attempt  5	[0.03 s]
+0.0.N: Trace Attempt  4	[0.02 s]
+0.0.N: Trace Attempt  4	[0.03 s]
+0.0.B: Proofgrid shell started at 4065@ee03(local) jg_3992_ee03_1
+0.0.B: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.B: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.B: Trace Attempt  3	[0.00 s]
+0.0.Ht: Trace Attempt  7	[0.05 s]
+0.0.Ht: A trace with 7 cycles was found. [0.06 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_in" was covered in 7 cycles in 0.06 s.
+0.0.N: Trace Attempt  5	[0.06 s]
+0.0.Ht: Trace Attempt  8	[0.07 s]
+0.0.B: Trace Attempt  4	[0.02 s]
+0.0.B: Trace Attempt  5	[0.04 s]
+0.0.Ht: A trace with 8 cycles was found. [0.09 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_out" was covered in 8 cycles in 0.09 s.
+0.0.N: Trace Attempt  1	[0.44 s]
+0.0.N: Trace Attempt  2	[0.44 s]
+0.0.N: Trace Attempt  3	[0.45 s]
+0.0.N: Trace Attempt  4	[0.46 s]
+0.0.N: Trace Attempt  5	[0.47 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Trace Attempt 10	[0.56 s]
+0.0.N: A proof was found: No trace exists. [0.58 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity" was proven in 0.58 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.58 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.54 s].
+0.0.B: Last scan. Per property time limit: 0s
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.B: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.B: Trace Attempt  5	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.76 s]
+0.0.N: A proof was found: No trace exists. [0.02 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow" was proven in 0.02 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.02 s].
+0.0.N: All properties determined. [0.02 s]
+0.0.N: Exited with Success (@ 0.76 s)
+0: ProofGrid usable level: 0
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.01 s].
+0.0.B: Trace Attempt  6	[0.01 s]
+0.0.B: All properties determined. [0.01 s]
+0.0.B: Exited with Success (@ 0.77 s)
+0.0.Hp: Interrupted (multi)
+0.0.Hp: All properties determined. [0.73 s]
+0.0.Ht: Interrupted (multi)
+0.0.Hp: Exited with Success (@ 0.79 s)
+0.0.Ht: Trace Attempt 16	[0.31 s]
+0.0.Ht: All properties determined. [0.64 s]
+0.0.Ht: Exited with Success (@ 0.79 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 84.37 %)
+--------------------------------------------------------------
+     engines started                               :     4
+     engine jobs started                           :     4
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.06        0.75        0.00       92.76 %
+     Hp        0.09        0.71        0.00       88.63 %
+     Ht        0.14        0.61        0.00       80.80 %
+      B        0.19        0.56        0.00       74.35 %
+    all        0.12        0.66        0.00       84.37 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.49        2.63        0.00
+
+    Data read    : 54.43 kiB
+    Data written : 7.21 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 76
+                 assertions                   : 70 (39 disabled)
+                  - proven                    : 25 (35.7143%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 6 (8.57143%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 39 (39 disabled)                                 (55.7143%)
+                  - error                     : 0 (0%)
+                 covers                       : 6
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 6 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow".
+cex
+[<embedded>] % prove -bg -all
+background 1
+INFO (IPF036): Starting proof on task: "<embedded>", 0 properties to prove with 25 already proven/unreachable
+INFO (IPF060): There are no unresolved assertions in task: <embedded>
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 1
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 76
+                 assertions                   : 70 (39 disabled)
+                  - proven                    : 25 (35.7143%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 6 (8.57143%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 39 (39 disabled)                                 (55.7143%)
+                  - error                     : 0 (0%)
+                 covers                       : 6
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 6 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % include /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% jasper_scoreboard_3 -init
+%% 
+%% set ABVIP_INST_DIR /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+%% #set ABVIP_INST_DIR /grid/avs/install/vipcat/11.3/latest/tools/abvip
+%% abvip -set_location $ABVIP_INST_DIR
+%% set_visualize_auto_load_debugging_tables on
+%% 
+%% analyze -sv09  -f jg.f
+INFO (INL011): Processing "-f" file "/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jg.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/jasper_package/jasper_scoreboard_3_pkg.ve'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/Usertype_PKG.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/bridge.sv'
+[WARN (VERI-1208)] ../01_RTL/bridge.sv(134): literal value 'h1000_0000 truncated to fit in 8 bits
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/INF.sv'
+%% analyze -sv09  top.sv
+[-- (VERI-1482)] Analyzing Verilog file 'top.sv'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_core' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_core.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_sync' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_sync.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tag' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tag.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_symbol' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_symbol.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_datacnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_datacnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_txcnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_txcnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tracker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tracker.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_latency_counter' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_latency_counter.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3.sdb'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv(35): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(30): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/amba4_defines.svh'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(1839): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/abviplib.v'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(2372): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/version.v'
+[-- (VERI-1489)]       Resolving module 'axi4_slave'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_csr_extended_checker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker/work/jasper_csr_extended_checker.sdb'
+%% elaborate -top top -no_precondition -extract_covergroups
+INFO (ISW003): Top module name is "top".
+[INFO (HIER-8002)] top.sv(180): Disabling old hierarchical reference handler
+[WARN (VERI-1927)] top.sv(60): port 'awid' remains unconnected for this instance
+[WARN (VERI-2435)] top.sv(122): port 'incoming_clk' is not connected on this instance
+[WARN (VERI-1927)] top.sv(122): port 'incoming_selected' remains unconnected for this instance
+[WARN (VERI-2435)] top.sv(142): port 'incoming_clk' is not connected on this instance
+[WARN (VERI-1927)] top.sv(142): port 'incoming_selected' remains unconnected for this instance
+[INFO (VERI-1018)] jasper_scoreboard_3.v(1092): compiling module 'jasper_scoreboard_3_txcnt:(IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,ORDERING=IN_ORDER)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(1119): net 'tracking_start[0]' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(260): compiling module 'jasper_scoreboard_3_core:(ORDERING=IN_ORDER,IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,INTEGRITY_CHECK=1'b1,OVERFLOW_CHECK=1'b1,COVER_COUNT=32'b010,LATENCY_CHECK=1'b0,LATENCY_HALT_MODE=2'b0,XPROP_CTRL_CHECK=1'b0,XPROP_DATA_CHECK=1'b0,LITE_CHECKS=1'b0,FIRST_CHECKS=1'b0,FIRST_CHECKS_COUNT=32'b01,MODEL=TXCNT)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(310): net 'txcnt_latency_check_error' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(311): net 'txcnt_latency_cnt_stimulated' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(12): compiling module 'jasper_scoreboard_3:(CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(67): net 'global_clock' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(68): net 'global_reset' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(1092): compiling module 'jasper_scoreboard_3_txcnt:(IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01,ORDERING=IN_ORDER)'
+[INFO (VERI-1018)] jasper_scoreboard_3.v(260): compiling module 'jasper_scoreboard_3_core:(ORDERING=IN_ORDER,IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01,INTEGRITY_CHECK=1'b1,OVERFLOW_CHECK=1'b1,COVER_COUNT=32'b010,LATENCY_CHECK=1'b0,LATENCY_HALT_MODE=2'b0,XPROP_CTRL_CHECK=1'b0,XPROP_DATA_CHECK=1'b0,LITE_CHECKS=1'b0,FIRST_CHECKS=1'b0,FIRST_CHECKS_COUNT=32'b01,MODEL=TXCNT)'
+[INFO (VERI-1018)] jasper_scoreboard_3.v(12): compiling module 'jasper_scoreboard_3:(CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01)'
+[INFO (VERI-1018)] top.sv(20): compiling module 'top'
+[INFO (VERI-1018)] ../01_RTL/bridge.sv(21): compiling module 'bridge:(inf=INF_bridge_inf)'
+[INFO (VERI-1018)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(162): compiling module 'axi4_slave:(ADDR_WIDTH=8,DATA_WIDTH=32,MAX_PENDING=1,MAX_PENDING_WR=1,MAX_PENDING_RD=1)'
+[WARN (VERI-1330)] top.sv(39): actual bit length 17 differs from formal bit length 8 for port 'awaddr'
+[WARN (VERI-1330)] top.sv(52): actual bit length 17 differs from formal bit length 8 for port 'araddr'
+[WARN (VERI-9028)] top.sv(36): missing/open ports on instance slave of module axi4_slave
+[WARN (VERI-9028)] top.sv(115): missing/open ports on instance sc_r of module jasper_scoreboard_3
+[WARN (VERI-1330)] top.sv(139): actual bit length 1 differs from formal bit length 17 for port 'incoming_data'
+[WARN (VERI-9028)] top.sv(135): missing/open ports on instance sc_AW of module jasper_scoreboard_3
+[WARN (VDB-1002)] top.sv(25): net 'SystemClock' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(23): net 'inf.rst_n' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(36): net 'inf.C_addr[6]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(37): net 'inf.C_data_w[31]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(39): net 'inf.C_in_valid' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(41): net 'inf.C_r_wb' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AR_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.R_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AW_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.W_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.B_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.R_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.B_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(46): net 'inf.R_DATA[31]' does not have a driver
+[WARN (VDB-1002)] top.sv(139): net '_addr' does not have a driver
+[WARN (VDB-1013)] top.sv(60): input port 'awid[1]' is not connected on this instance
+[WARN (VDB-1013)] top.sv(122): input port 'incoming_clk' is not connected on this instance
+[WARN (VDB-1013)] top.sv(142): input port 'incoming_clk' is not connected on this instance
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          12 (3 packages)
+  Single run mode                         On
+  Pipeline                                On (8 pipelined netlists)
+  Late hierarchical reference connection  Off
+  Number of analyzed Verilog modules      18 (9 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7534): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7544): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7575): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9835): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9847): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9854): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9864): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9872): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9903): Weakly embedded unbounded sequence in a ASSERT directive.
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+top
+%% 
+%% clock SystemClock
+%% reset ~inf.rst_n
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "inf.rst_n".
+%% 
+%% 
+%% 
+%% # ------------------------ LAN Version ---------------------------
+%% assert -disable *prot* *len* *user* *lock* *qos* *region* *cache* *last* *size* *burst* *awid* *arid*
+<embedded>::top.slave.genStableChks.genStableChksRDInf.master_ar_arprot_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awprot_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlen_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlen_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arlen_less_than_TRANS_COUNT <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_arlen <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_fixed_arlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awlen_less_than_maxlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_fixed_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.genDbcAw.genAwlenMaxLenGr1.master_aw_w_awlen_exact_len_dbc <embedded>::top.slave.genPropChksWRInf.genWlastMaxlenGr1.master_w_aw_wlast_exact_len <embedded>::top.slave.genPropChksWRInf.genDbcW.genAXI4Full.master_w_aw_wlast_exact_len_dbc <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_aruser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awuser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wuser_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlock_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlock_stable <embedded>::top.slave.genNoExChks.master_ar_arlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genNoExChks.master_aw_awlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arqos_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awqos_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arregion_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awregion_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arcache_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awcache_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arcache_no_ra_wa_for_uncacheable <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awcache_no_ra_wa_non_modifiable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wlast_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arsize_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awsize_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arsize_lte_datawidth <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awsize_lte_datawidth <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arburst_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awburst_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arburst_no_reserved <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awburst_no_reserved <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awid_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arid_stable
+%% assume {slave.awsize==4}               -name slave_awsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_awsize
+%% assume {slave.awid==0}                 -name slave_awid
+WARNING (WNL023): Expression sizes mismatch.
+slave_awid
+%% assume {slave.wid==0}                  -name slave_wid
+WARNING (WNL023): Expression sizes mismatch.
+slave_wid
+%% assume {slave.wlast==1}                -name slave_wlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_wlast
+%% assume {slave.arsize==4}               -name slave_arsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_arsize
+%% assume {slave.arid==1}                 -name slave_arid
+WARNING (WNL023): Expression sizes mismatch.
+slave_arid
+%% assume {slave.rlast==1}                -name slave_rlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_rlast
+%% assume {slave.awburst==0}              -name slave_awburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_awburst_fixed
+%% assume {slave.arburst==0}              -name slave_arburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_arburst_fixed
+%% assume {&slave.wstrb==1}               -name slave_wstrb
+WARNING (WNL023): Expression sizes mismatch.
+slave_wstrb
+%% 
+%% # Good For TA
+%% #get_needed_assumption -property {<embedded>::top.sc_w.genblk6.core.genblk7.COVER[1].data_in}
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 44 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 480 of 483 design flops, 0 of 4 design latches, 463 of 805 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.genAXI4.assert_param_DATA_WIDTH_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_ALL_STROBES_HIGH_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_MAX_WAIT_CYCLES_ON_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_READONLY_INTERFACE_WRITEONLY_INTERFACE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_with_AXI4_LITE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genLiveMasterChksRReady.master_r_rready_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genDBCAW.master_aw_awvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genliveW.master_w_wvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genLiveMasterChksBReady.master_b_bready_eventually" was proven in 0.00 s.
+0: Found proofs for 12 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.005s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.01 s]
+0.0.N: Proof Simplification Iteration 5	[0.01 s]
+0.0.N: Proof Simplification Iteration 6	[0.01 s]
+0.0.N: Proof Simplification Iteration 7	[0.01 s]
+0.0.N: Proof Simplification Iteration 8	[0.01 s]
+0.0.N: Proof Simplification Iteration 9	[0.01 s]
+0.0.N: Proof Simplification Iteration 10	[0.01 s]
+0.0.N: Proof Simplification Iteration 11	[0.01 s]
+0.0.N: Proof Simplification Iteration 12	[0.02 s]
+0.0.N: Proof Simplification Iteration 13	[0.02 s]
+0.0.N: Proof Simplification Iteration 14	[0.02 s]
+0.0.N: Proof Simplification Iteration 15	[0.02 s]
+0.0.N: Proof Simplification Iteration 16	[0.02 s]
+0.0.N: Proof Simplification Iteration 17	[0.02 s]
+0.0.N: Proof Simplification Iteration 18	[0.03 s]
+0.0.N: Proof Simplification Iteration 19	[0.03 s]
+0.0.N: Proof Simplification Iteration 20	[0.03 s]
+0.0.N: Proof Simplification Iteration 21	[0.03 s]
+0.0.N: Proof Simplification Iteration 22	[0.03 s]
+0.0.N: Proof Simplification Iteration 23	[0.03 s]
+0.0.N: Proof Simplification Iteration 24	[0.03 s]
+0.0.N: Proof Simplification Iteration 25	[0.04 s]
+0.0.N: Proof Simplification Iteration 26	[0.04 s]
+0.0.N: Proof Simplification Iteration 27	[0.04 s]
+0.0.N: Proof Simplification Iteration 28	[0.04 s]
+0.0.N: Proof Simplification Iteration 29	[0.04 s]
+0.0.N: Proof Simplification Iteration 30	[0.04 s]
+0.0.N: Proof Simplification Iteration 31	[0.04 s]
+0.0.N: Proof Simplification Iteration 32	[0.05 s]
+0.0.N: Proof Simplification Iteration 33	[0.05 s]
+0.0.N: Proof Simplification Iteration 34	[0.05 s]
+0.0.N: Proof Simplification Iteration 35	[0.05 s]
+0.0.N: Proof Simplification Iteration 36	[0.05 s]
+0.0.N: Proof Simplification Iteration 37	[0.05 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wstrb_stable" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksRDInf.master_rst_arvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_awvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_wvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.06 s
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 28
+0: ProofGrid is starting event handling
+0.0.N: Proofgrid shell started at 4204@ee03(local) jg_3992_ee03_2
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "top.assert_invalid_i"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.assert_invalid_i" was proven in 0.00 s.
+0.0.N: Stopped processing property "top.assert_invalid_i"	[0.00 s].
+0.0.N: Starting proof for property "top.assert_W_DATA"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.assert_W_DATA" in 0.04 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow" in 0.04 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksWRInf.genNoWrTblOverflow.master_aw_wr_tbl_no_overflow" in 0.04 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF047): 0.0.N: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[0].data_in" was covered in 1 cycles in 0.04 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF047): 0.0.N: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[0].data_out" was covered in 2 cycles in 0.04 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF047): 0.0.N: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[0]" was covered in 1 cycles in 0.04 s by the incidental trace "top.assert_W_DATA".
+0.0.N: Stopped processing property "top.assert_W_DATA"	[0.04 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable" in 0.00 s.
+INFO (IPF047): 0.0.N: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[1]" was covered in 1 cycles in 0.00 s by the incidental trace "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable".
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.02 s]
+0.0.N: Trace Attempt  5	[0.02 s]
+0.0.N: Trace Attempt  1	[0.02 s]
+0.0.N: Trace Attempt  2	[0.02 s]
+0.0.N: Trace Attempt  3	[0.02 s]
+0.0.N: Trace Attempt  4	[0.02 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.02 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable" was proven in 0.01 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.01 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable" was proven in 0.02 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.02 s].
+0.0.N: Starting proof for property "top.slave.genPropChksRDInf.assert_ar_rd_tbl_no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genPropChksRDInf.assert_ar_rd_tbl_no_overflow" was proven in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genPropChksRDInf.assert_ar_rd_tbl_no_overflow"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genPropChksWRInf.assert_aw_wr_tbl_no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genPropChksWRInf.assert_aw_wr_tbl_no_overflow" was proven in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genPropChksWRInf.assert_aw_wr_tbl_no_overflow"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.Hp: Proofgrid shell started at 4205@ee03(local) jg_3992_ee03_2
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.Hp: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Ht: Proofgrid shell started at 4217@ee03(local) jg_3992_ee03_2
+0.0.Ht: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Lemmas used(1): ?9 |10
+0.0.Hp: A proof was found: No trace exists. [0.02 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksWRInf.assert_w_wr_tbl_no_overflow" was proven in 0.02 s.
+0.0.Ht: Trace Attempt  1	[0.01 s]
+0.0.Ht: Trace Attempt  2	[0.01 s]
+0.0.Ht: A trace with 2 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 2 cycles was found for the property "top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity" in 0.01 s.
+0.0.Ht: Trace Attempt  3	[0.01 s]
+0.0.Ht: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_in" was covered in 3 cycles in 0.02 s.
+0.0.Ht: Trace Attempt  4	[0.02 s]
+0.0.N: Trace Attempt  1	[0.05 s]
+0.0.N: Trace Attempt  2	[0.05 s]
+0.0.N: Trace Attempt  3	[0.05 s]
+0.0.N: Trace Attempt  4	[0.05 s]
+0.0.Ht: A trace with 4 cycles was found. [0.03 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_out" was covered in 4 cycles in 0.03 s.
+0.0.Ht: Trace Attempt  5	[0.03 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.06 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow" was proven in 0.06 s.
+0.0.N: Stopped processing property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.06 s].
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.02 s]
+0.0.B: Proofgrid shell started at 4219@ee03(local) jg_3992_ee03_2
+0.0.Ht: Trace Attempt  6	[0.05 s]
+0.0.Ht: A trace with 6 cycles was found. [0.06 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[1].data_in" was covered in 6 cycles in 0.06 s.
+0.0.B: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.B: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  2	[0.01 s]
+0.0.B: Trace Attempt  3	[0.01 s]
+0.0.Ht: Trace Attempt  7	[0.08 s]
+0.0.N: Trace Attempt  5	[0.04 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.Ht: A trace with 7 cycles was found. [0.09 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_in" was covered in 7 cycles in 0.09 s.
+0.0.B: Trace Attempt  5	[0.03 s]
+0.0.Ht: A trace with 7 cycles was found. [0.10 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[1].data_out" was covered in 7 cycles in 0.10 s.
+0.0.Ht: Trace Attempt  8	[0.11 s]
+0.0.Ht: A trace with 8 cycles was found. [0.12 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_out" was covered in 8 cycles in 0.12 s.
+0.0.Ht: Trace Attempt  9	[0.12 s]
+0.0.N: Trace Attempt  1	[0.46 s]
+0.0.N: Trace Attempt  2	[0.47 s]
+0.0.N: Trace Attempt  3	[0.47 s]
+0.0.N: Trace Attempt  4	[0.48 s]
+0.0.N: Trace Attempt  5	[0.49 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Trace Attempt  8	[0.54 s]
+0.0.N: A proof was found: No trace exists. [0.60 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity" was proven in 0.60 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.60 s].
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.58 s].
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.B: Trace Attempt  3	[0.01 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.B: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.11 s]
+0.0.N: Trace Attempt  2	[0.11 s]
+0.0.N: Trace Attempt  3	[0.11 s]
+0.0.N: Trace Attempt  5	[0.12 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.12 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow" was proven in 0.12 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.12 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.12 s].
+0.0.B: Last scan. Per property time limit: 0s
+0.0.B: Starting proof for property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.B: Trace Attempt  3	[0.00 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.B: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.04 s]
+0.0.N: Trace Attempt  2	[0.04 s]
+0: ProofGrid usable level: 1
+0.0.N: Trace Attempt  3	[0.05 s]
+0.0.N: Trace Attempt  4	[0.06 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.95 s]
+0.0.N: A proof was found: No trace exists. [0.06 s]
+INFO (IPF057): 0.0.N: The property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow" was proven in 0.06 s.
+0.0.N: Stopped processing property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.06 s].
+0.0.N: All properties determined. [0.06 s]
+0.0.N: Exited with Success (@ 0.95 s)
+0: ProofGrid usable level: 0
+0.0.B: Stopped processing property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.04 s].
+0.0.B: Trace Attempt  9	[0.04 s]
+0.0.B: All properties determined. [0.04 s]
+0.0.B: Exited with Success (@ 0.96 s)
+0.0.Ht: Interrupted (multi)
+0.0.Ht: Trace Attempt 25	[0.82 s]
+0.0.Ht: All properties determined. [0.82 s]
+0.0.Hp: Interrupted (multi)
+0.0.Ht: Exited with Success (@ 0.96 s)
+0.0.Hp: All properties determined. [0.84 s]
+0.0.Hp: Exited with Success (@ 0.98 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 85.58 %)
+--------------------------------------------------------------
+     engines started                               :     4
+     engine jobs started                           :     4
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.06        0.94        0.00       93.58 %
+     Hp        0.18        0.83        0.00       82.39 %
+     Ht        0.13        0.82        0.00       85.95 %
+      B        0.19        0.75        0.00       80.07 %
+    all        0.14        0.83        0.00       85.58 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.56        3.34        0.00
+
+    Data read    : 85.19 kiB
+    Data written : 8.34 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 83
+                 assertions                   : 73 (39 disabled)
+                  - proven                    : 26 (35.6164%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 8 (10.9589%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 39 (39 disabled)                                 (53.4247%)
+                  - error                     : 0 (0%)
+                 covers                       : 10
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 10 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::top.assert_W_DATA -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.assert_W_DATA".
+cex
+[<embedded>] % include /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% jasper_scoreboard_3 -init
+%% 
+%% set ABVIP_INST_DIR /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+%% #set ABVIP_INST_DIR /grid/avs/install/vipcat/11.3/latest/tools/abvip
+%% abvip -set_location $ABVIP_INST_DIR
+%% set_visualize_auto_load_debugging_tables on
+%% 
+%% analyze -sv09  -f jg.f
+INFO (INL011): Processing "-f" file "/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jg.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/jasper_package/jasper_scoreboard_3_pkg.ve'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/Usertype_PKG.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/bridge.sv'
+[WARN (VERI-1208)] ../01_RTL/bridge.sv(134): literal value 'h1000_0000 truncated to fit in 8 bits
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/INF.sv'
+%% analyze -sv09  top.sv
+[-- (VERI-1482)] Analyzing Verilog file 'top.sv'
+[ERROR (VERI-1128)] top.sv(158): 'temp_wdata' is not declared
+[ERROR (VERI-1128)] top.sv(161): 'temp_wdata' is not declared
+[ERROR (VERI-1128)] top.sv(164): 'temp_wdata' is not declared
+[ERROR (VERI-1128)] top.sv(164): 'temp_wdata' is not declared
+[ERROR (VERI-1072)] top.sv(180): module 'top' ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1128)] top.sv(158): 'temp_wdata' is not declared
+	[ERROR (VERI-1128)] top.sv(161): 'temp_wdata' is not declared
+	[ERROR (VERI-1128)] top.sv(164): 'temp_wdata' is not declared
+	[ERROR (VERI-1128)] top.sv(164): 'temp_wdata' is not declared
+	[ERROR (VERI-1072)] top.sv(180): module 'top' ignored due to previous errors
+ERROR at line 11 in file /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 5 errors detected in the design file(s).
+
+
+% include /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% jasper_scoreboard_3 -init
+%% 
+%% set ABVIP_INST_DIR /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+%% #set ABVIP_INST_DIR /grid/avs/install/vipcat/11.3/latest/tools/abvip
+%% abvip -set_location $ABVIP_INST_DIR
+%% set_visualize_auto_load_debugging_tables on
+%% 
+%% analyze -sv09  -f jg.f
+INFO (INL011): Processing "-f" file "/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jg.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/jasper_package/jasper_scoreboard_3_pkg.ve'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/Usertype_PKG.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/bridge.sv'
+[WARN (VERI-1208)] ../01_RTL/bridge.sv(134): literal value 'h1000_0000 truncated to fit in 8 bits
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/INF.sv'
+%% analyze -sv09  top.sv
+[-- (VERI-1482)] Analyzing Verilog file 'top.sv'
+[ERROR (VERI-1128)] top.sv(168): '_W_DATA' is not declared
+[ERROR (VERI-1072)] top.sv(180): module 'top' ignored due to previous errors
+Summary of errors detected:
+	[ERROR (VERI-1128)] top.sv(168): '_W_DATA' is not declared
+	[ERROR (VERI-1072)] top.sv(180): module 'top' ignored due to previous errors
+ERROR at line 11 in file /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl, more info in Tcl-variable errorInfo
+ERROR (ENL034): 2 errors detected in the design file(s).
+
+
+% prove -bg -all
+ERROR (ENL001): No design modules are defined.
+
+
+% include /home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/run.tcl
+%% clear -all
+INFO (IPF121): Cleared environment completely for new design analysis.
+%% 
+%% jasper_scoreboard_3 -init
+%% 
+%% set ABVIP_INST_DIR /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip
+%% #set ABVIP_INST_DIR /grid/avs/install/vipcat/11.3/latest/tools/abvip
+%% abvip -set_location $ABVIP_INST_DIR
+%% set_visualize_auto_load_debugging_tables on
+%% 
+%% analyze -sv09  -f jg.f
+INFO (INL011): Processing "-f" file "/home/RAID2/COURSE/iclab/iclab093/Bonus_formal_verification/Exercise/02_JG/jg.f".
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/packages/std/std.sv' into library 'std'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/eda/jasper_2021.03/lib/verilog/jasper_package/jasper_scoreboard_3_pkg.ve'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/Usertype_PKG.sv'
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/bridge.sv'
+[WARN (VERI-1208)] ../01_RTL/bridge.sv(134): literal value 'h1000_0000 truncated to fit in 8 bits
+[-- (VERI-1482)] Analyzing Verilog file '../01_RTL/INF.sv'
+%% analyze -sv09  top.sv
+[-- (VERI-1482)] Analyzing Verilog file 'top.sv'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_core' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_core.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_sync' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_sync.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tag' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tag.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_symbol' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_symbol.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_datacnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_datacnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_txcnt' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_txcnt.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_tracker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_tracker.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3_latency_counter' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3_latency_counter.sdb'
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_scoreboard_3' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_scoreboard_3/work/jasper_scoreboard_3.sdb'
+[-- (VERI-1482)] Analyzing Verilog file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/axi4_slave.sv(35): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(30): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/amba4_defines.svh'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(1839): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/abviplib.v'
+[INFO (VERI-1328)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(2372): analyzing included file '/home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/version.v'
+[-- (VERI-1489)]       Resolving module 'axi4_slave'
+[INFO (VERI-1508)] The default Verilog library search path is now "/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker"
+[-- (VERI-1503)] Restoring Verilog parse-tree 'work.jasper_csr_extended_checker' from '/home/RAID2/eda/jasper_2021.03/lib/Linux64/verilog/jasper_package/jasper_csr_extended_checker/work/jasper_csr_extended_checker.sdb'
+%% elaborate -top top -no_precondition -extract_covergroups
+INFO (ISW003): Top module name is "top".
+[INFO (HIER-8002)] top.sv(180): Disabling old hierarchical reference handler
+[WARN (VERI-1927)] top.sv(60): port 'awid' remains unconnected for this instance
+[WARN (VERI-2435)] top.sv(122): port 'incoming_clk' is not connected on this instance
+[WARN (VERI-1927)] top.sv(122): port 'incoming_selected' remains unconnected for this instance
+[WARN (VERI-2435)] top.sv(142): port 'incoming_clk' is not connected on this instance
+[WARN (VERI-1927)] top.sv(142): port 'incoming_selected' remains unconnected for this instance
+[INFO (VERI-1018)] jasper_scoreboard_3.v(1092): compiling module 'jasper_scoreboard_3_txcnt:(IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,ORDERING=IN_ORDER)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(1119): net 'tracking_start[0]' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(260): compiling module 'jasper_scoreboard_3_core:(ORDERING=IN_ORDER,IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01,INTEGRITY_CHECK=1'b1,OVERFLOW_CHECK=1'b1,COVER_COUNT=32'b010,LATENCY_CHECK=1'b0,LATENCY_HALT_MODE=2'b0,XPROP_CTRL_CHECK=1'b0,XPROP_DATA_CHECK=1'b0,LITE_CHECKS=1'b0,FIRST_CHECKS=1'b0,FIRST_CHECKS_COUNT=32'b01,MODEL=TXCNT)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(310): net 'txcnt_latency_check_error' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(311): net 'txcnt_latency_cnt_stimulated' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(12): compiling module 'jasper_scoreboard_3:(CHUNK_WIDTH=32'b0100000,MAX_PENDING=32'b01)'
+[WARN (VDB-1002)] jasper_scoreboard_3.v(67): net 'global_clock' does not have a driver
+[WARN (VDB-1002)] jasper_scoreboard_3.v(68): net 'global_reset' does not have a driver
+[INFO (VERI-1018)] jasper_scoreboard_3.v(1092): compiling module 'jasper_scoreboard_3_txcnt:(IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01,ORDERING=IN_ORDER)'
+[INFO (VERI-1018)] jasper_scoreboard_3.v(260): compiling module 'jasper_scoreboard_3_core:(ORDERING=IN_ORDER,IN_CHUNKS=32'b01,OUT_CHUNKS=32'b01,CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01,INTEGRITY_CHECK=1'b1,OVERFLOW_CHECK=1'b1,COVER_COUNT=32'b010,LATENCY_CHECK=1'b0,LATENCY_HALT_MODE=2'b0,XPROP_CTRL_CHECK=1'b0,XPROP_DATA_CHECK=1'b0,LITE_CHECKS=1'b0,FIRST_CHECKS=1'b0,FIRST_CHECKS_COUNT=32'b01,MODEL=TXCNT)'
+[INFO (VERI-1018)] jasper_scoreboard_3.v(12): compiling module 'jasper_scoreboard_3:(CHUNK_WIDTH=32'b010001,MAX_PENDING=32'b01)'
+[INFO (VERI-1018)] top.sv(20): compiling module 'top'
+[INFO (VERI-1018)] ../01_RTL/bridge.sv(21): compiling module 'bridge:(inf=INF_bridge_inf)'
+[INFO (VERI-1018)] /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(162): compiling module 'axi4_slave:(ADDR_WIDTH=8,DATA_WIDTH=32,MAX_PENDING=1,MAX_PENDING_WR=1,MAX_PENDING_RD=1)'
+[WARN (VERI-1330)] top.sv(39): actual bit length 17 differs from formal bit length 8 for port 'awaddr'
+[WARN (VERI-1330)] top.sv(52): actual bit length 17 differs from formal bit length 8 for port 'araddr'
+[WARN (VERI-9028)] top.sv(36): missing/open ports on instance slave of module axi4_slave
+[WARN (VERI-9028)] top.sv(115): missing/open ports on instance sc_r of module jasper_scoreboard_3
+[WARN (VERI-1330)] top.sv(139): actual bit length 1 differs from formal bit length 17 for port 'incoming_data'
+[WARN (VERI-9028)] top.sv(135): missing/open ports on instance sc_AW of module jasper_scoreboard_3
+[WARN (VDB-1002)] top.sv(25): net 'SystemClock' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(23): net 'inf.rst_n' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(36): net 'inf.C_addr[6]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(37): net 'inf.C_data_w[31]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(39): net 'inf.C_in_valid' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(41): net 'inf.C_r_wb' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AR_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.R_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.AW_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.W_READY' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(43): net 'inf.B_VALID' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.R_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(45): net 'inf.B_RESP[1]' does not have a driver
+[WARN (VDB-1002)] ../01_RTL/INF.sv(46): net 'inf.R_DATA[31]' does not have a driver
+[WARN (VDB-1002)] top.sv(139): net '_addr' does not have a driver
+[WARN (VDB-1013)] top.sv(60): input port 'awid[1]' is not connected on this instance
+[WARN (VDB-1013)] top.sv(122): input port 'incoming_clk' is not connected on this instance
+[WARN (VDB-1013)] top.sv(142): input port 'incoming_clk' is not connected on this instance
+INFO (INL208): Elaboration synthesis summary:
+  Number of synthesized netlists          12 (3 packages)
+  Single run mode                         On
+  Pipeline                                On (8 pipelined netlists)
+  Late hierarchical reference connection  Off
+  Number of analyzed Verilog modules      18 (9 synthesized)
+  Number of analyzed VHDL entities        0 (0 synthesized)
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7534): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7544): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(7575): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9835): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9847): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9854): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9864): Weakly embedded unbounded sequence in a ASSERT directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9872): Weakly embedded unbounded sequence in a ASSUME directive.
+WARNING (WOBS002): /home/RAID2/COURSE/iclab/iclabta01/cadence_vip/tools/abvip/axi4/rtl/cdn_abvip_axi4_slave.svp(9903): Weakly embedded unbounded sequence in a ASSERT directive.
+INFO (INL003): Clearing all state information (assumes, stopats, and so forth).
+top
+%% 
+%% clock SystemClock
+%% reset ~inf.rst_n
+INFO (IPM031): Clearing proof results of all properties.
+INFO (IRS006): Current reset condition is "inf.rst_n".
+%% 
+%% 
+%% 
+%% # ------------------------ LAN Version ---------------------------
+%% assert -disable *prot* *len* *user* *lock* *qos* *region* *cache* *last* *size* *burst* *awid* *arid*
+<embedded>::top.slave.genStableChks.genStableChksRDInf.master_ar_arprot_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awprot_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlen_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlen_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arlen_less_than_TRANS_COUNT <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_arlen <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_fixed_arlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awlen_less_than_maxlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_fixed_awlen <embedded>::top.slave.genPropChksWRInf.genAXI4Full.genDbcAw.genAwlenMaxLenGr1.master_aw_w_awlen_exact_len_dbc <embedded>::top.slave.genPropChksWRInf.genWlastMaxlenGr1.master_w_aw_wlast_exact_len <embedded>::top.slave.genPropChksWRInf.genDbcW.genAXI4Full.master_w_aw_wlast_exact_len_dbc <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_aruser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awuser_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wuser_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arlock_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awlock_stable <embedded>::top.slave.genNoExChks.master_ar_arlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genNoExChks.master_aw_awlock_no_excl_access_throttle_cnstr <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arqos_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awqos_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arregion_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awregion_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arcache_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awcache_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arcache_no_ra_wa_for_uncacheable <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awcache_no_ra_wa_non_modifiable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_w_wlast_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arsize_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awsize_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arsize_lte_datawidth <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awsize_lte_datawidth <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arburst_stable <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awburst_stable <embedded>::top.slave.genPropChksRDInf.genAXI4Full.master_ar_arburst_no_reserved <embedded>::top.slave.genPropChksWRInf.genAXI4Full.master_aw_awburst_no_reserved <embedded>::top.slave.genStableChks.genStableChksWRInf.genAXI4Full.master_aw_awid_stable <embedded>::top.slave.genStableChks.genStableChksRDInf.genAXI4Full.master_ar_arid_stable
+%% assume {slave.awsize==4}               -name slave_awsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_awsize
+%% assume {slave.awid==0}                 -name slave_awid
+WARNING (WNL023): Expression sizes mismatch.
+slave_awid
+%% assume {slave.wid==0}                  -name slave_wid
+WARNING (WNL023): Expression sizes mismatch.
+slave_wid
+%% assume {slave.wlast==1}                -name slave_wlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_wlast
+%% assume {slave.arsize==4}               -name slave_arsize
+WARNING (WNL023): Expression sizes mismatch.
+slave_arsize
+%% assume {slave.arid==1}                 -name slave_arid
+WARNING (WNL023): Expression sizes mismatch.
+slave_arid
+%% assume {slave.rlast==1}                -name slave_rlast
+WARNING (WNL023): Expression sizes mismatch.
+slave_rlast
+%% assume {slave.awburst==0}              -name slave_awburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_awburst_fixed
+%% assume {slave.arburst==0}              -name slave_arburst_fixed
+WARNING (WNL023): Expression sizes mismatch.
+slave_arburst_fixed
+%% assume {&slave.wstrb==1}               -name slave_wstrb
+WARNING (WNL023): Expression sizes mismatch.
+slave_wstrb
+%% 
+%% # Good For TA
+%% #get_needed_assumption -property {<embedded>::top.sc_w.genblk6.core.genblk7.COVER[1].data_in}
+[<embedded>] % prove -bg -all
+background 0
+INFO (IPF036): Starting proof on task: "<embedded>", 44 properties to prove with 0 already proven/unreachable
+INFO (IRS029): Starting reset analysis: phase 1 of 4.
+INFO (IRS030): Running reset analysis: phase 2 of 4.
+INFO (IRS031): Running reset analysis: phase 3 of 4.
+INFO (IRS020): Starting the reset analysis simulation with a limit of 100 iterations (phase 4 of 4).
+INFO (IRS024): Reset iterations 0 to 4 analyzed.
+INFO (IRS018): Reset analysis simulation executed for 3 iterations. Assigned values for 480 of 483 design flops, 0 of 4 design latches, 463 of 805 internal elements.
+INFO (IRS039): Reset analysis complete.
+INFO (IPF031): Settings used for proof thread 0:
+    orchestration                 = on (auto)
+    time_limit                    = 86400s
+    per_property_time_limit       = 1s * 10 ^ scan
+    engine_mode                   = auto
+    proofgrid_per_engine_max_jobs = 1
+    max engine jobs               = auto
+    proofgrid_mode                = local
+    proofgrid_restarts            = 10
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.genAXI4.assert_param_DATA_WIDTH_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_ALL_STROBES_HIGH_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_MAX_WAIT_CYCLES_ON_legal" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_READONLY_INTERFACE_WRITEONLY_INTERFACE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genParamChk.assert_param_EXCL_ACCESS_ON_with_AXI4_LITE_limitation" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genAXI4Full.master_ar_araddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksRDInf.genLiveMasterChksRReady.master_r_rready_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genAXI4Full.master_aw_awaddr_wrap_aligned" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genDBCAW.master_aw_awvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genliveW.master_w_wvalid_eventually" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genPropChksWRInf.genLiveMasterChksBReady.master_b_bready_eventually" was proven in 0.00 s.
+0: Found proofs for 12 properties in preprocessing
+0: Using multistage preprocessing
+0: Starting reduce
+0: Finished reduce in 0.005s
+0.0.PRE: Performing Proof Simplification...
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Proof Simplification Iteration 1	[0.00 s]
+0.0.N: Proof Simplification Iteration 2	[0.00 s]
+0.0.N: Proof Simplification Iteration 3	[0.00 s]
+0.0.N: Proof Simplification Iteration 4	[0.01 s]
+0.0.N: Proof Simplification Iteration 5	[0.01 s]
+0.0.N: Proof Simplification Iteration 6	[0.01 s]
+0.0.N: Proof Simplification Iteration 7	[0.01 s]
+0.0.N: Proof Simplification Iteration 8	[0.01 s]
+0.0.N: Proof Simplification Iteration 9	[0.01 s]
+0.0.N: Proof Simplification Iteration 10	[0.01 s]
+0.0.N: Proof Simplification Iteration 11	[0.01 s]
+0.0.N: Proof Simplification Iteration 12	[0.02 s]
+0.0.N: Proof Simplification Iteration 13	[0.02 s]
+0.0.N: Proof Simplification Iteration 14	[0.02 s]
+0.0.N: Proof Simplification Iteration 15	[0.02 s]
+0.0.N: Proof Simplification Iteration 16	[0.02 s]
+0.0.N: Proof Simplification Iteration 17	[0.02 s]
+0.0.N: Proof Simplification Iteration 18	[0.03 s]
+0.0.N: Proof Simplification Iteration 19	[0.03 s]
+0.0.N: Proof Simplification Iteration 20	[0.03 s]
+0.0.N: Proof Simplification Iteration 21	[0.03 s]
+0.0.N: Proof Simplification Iteration 22	[0.03 s]
+0.0.N: Proof Simplification Iteration 23	[0.03 s]
+0.0.N: Proof Simplification Iteration 24	[0.04 s]
+0.0.N: Proof Simplification Iteration 25	[0.04 s]
+0.0.N: Proof Simplification Iteration 26	[0.04 s]
+0.0.N: Proof Simplification Iteration 27	[0.04 s]
+0.0.N: Proof Simplification Iteration 28	[0.04 s]
+0.0.N: Proof Simplification Iteration 29	[0.04 s]
+0.0.N: Proof Simplification Iteration 30	[0.04 s]
+0.0.N: Proof Simplification Iteration 31	[0.05 s]
+0.0.N: Proof Simplification Iteration 32	[0.05 s]
+0.0.N: Proof Simplification Iteration 33	[0.05 s]
+0.0.N: Proof Simplification Iteration 34	[0.05 s]
+0.0.N: Proof Simplification Iteration 35	[0.05 s]
+0.0.N: Proof Simplification Iteration 36	[0.05 s]
+0.0.N: Proof Simplification Iteration 37	[0.05 s]
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wstrb_stable" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksRDInf.master_rst_arvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_awvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: A proof was found: No trace exists. [0.00 s]
+INFO (IPF057): 0.0.PRE: The property "top.slave.genRstChksWDInf.master_rst_wvalid_low_reset_released" was proven in 0.00 s.
+0.0.PRE: Proof Simplification completed in 0.07 s
+0: About to start ProofGrid in its own thread with a limit of 10000 pending notifications and a limit of 10 traces.
+0: =============================== ProofGrid start ===============================
+0: ProofGrid usable level: 28
+0: ProofGrid is starting event handling
+0.0.Hp: Proofgrid shell started at 4517@ee03(local) jg_3992_ee03_3
+0.0.Hp: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.Hp: Lemmas used(1): ?4
+0.0.Hp: A proof was found: No trace exists. [0.04 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksRDInf.assert_ar_rd_tbl_no_overflow" was proven in 0.02 s.
+0.0.Hp: Lemmas used(1): ?4
+0.0.Hp: A proof was found: No trace exists. [0.04 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksWRInf.assert_aw_wr_tbl_no_overflow" was proven in 0.02 s.
+0.0.Hp: Lemmas used(1): ?4
+0.0.Hp: A proof was found: No trace exists. [0.04 s]
+INFO (IPF057): 0.0.Hp: The property "top.slave.genPropChksWRInf.assert_w_wr_tbl_no_overflow" was proven in 0.02 s.
+0.0.Hp: Trace Attempt  1	[0.04 s]
+0.0.Hp: A trace with 1 cycles was found. [0.04 s]
+INFO (IPF047): 0.0.Hp: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[0].data_in" was covered in 1 cycles in 0.05 s.
+INFO (IPF047): 0.0.Hp: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[0]" was covered in 1 cycles in 0.05 s.
+0.0.N: Proofgrid shell started at 4516@ee03(local) jg_3992_ee03_3
+0.0.N: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.N: Starting proof for property "top.assert_invalid_i"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.Hp: A trace with 1 cycles was found. [0.05 s]
+INFO (IPF047): 0.0.Hp: The cover property "cover_item_covergroup_Spec1_inst_inst_1_coverpoint_cover_r_wb_bin_auto[1]" was covered in 1 cycles in 0.05 s.
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.assert_invalid_i" was proven in 0.00 s.
+0.0.N: Stopped processing property "top.assert_invalid_i"	[0.00 s].
+0.0.N: Starting proof for property "top.assert_W_DATA"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.assert_W_DATA" in 0.00 s.
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow" in 0.00 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genPropChksWRInf.genNoWrTblOverflow.master_aw_wr_tbl_no_overflow" in 0.00 s by the incidental trace "top.assert_W_DATA".
+INFO (IPF047): 0.0.N: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[0].data_out" was covered in 2 cycles in 0.00 s by the incidental trace "top.assert_W_DATA".
+0.0.N: Stopped processing property "top.assert_W_DATA"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_arvalid_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable" in 0.01 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable"	[0.01 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: A trace with 3 cycles was found. [0.00 s]
+INFO (IPF055): 0.0.N: A counterexample (cex) with 3 cycles was found for the property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable" in 0.00 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable"	[0.00 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable" was proven in 0.01 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wvalid_stable"	[0.01 s].
+0.0.N: Starting proof for property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable" was proven in 0.01 s.
+0.0.N: Stopped processing property "top.slave.genStableChks.genStableChksWRInf.master_w_wdata_stable"	[0.01 s].
+0.0.N: Starting proof for property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.02 s]
+0.0.N: Trace Attempt  2	[0.02 s]
+0.0.N: Trace Attempt  3	[0.03 s]
+0.0.N: Trace Attempt  4	[0.03 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.03 s]
+INFO (IPF057): 0.0.N: The property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow" was proven in 0.03 s.
+0.0.N: Stopped processing property "top.slave.genPropChksWRInf.genNoWrDatTblOverflow.master_w_wr_tbl_no_overflow"	[0.03 s].
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.Ht: Proofgrid shell started at 4530@ee03(local) jg_3992_ee03_3
+0.0.Ht: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.N: Trace Attempt  5	[0.03 s]
+0.0.Ht: Trace Attempt  1	[0.00 s]
+0.0.Ht: Trace Attempt  2	[0.01 s]
+0.0.Ht: A trace with 2 cycles was found. [0.01 s]
+INFO (IPF055): 0.0.Ht: A counterexample (cex) with 2 cycles was found for the property "top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity" in 0.01 s.
+0.0.Ht: Trace Attempt  3	[0.01 s]
+0.0.B: Proofgrid shell started at 4531@ee03(local) jg_3992_ee03_3
+0.0.B: clocks: 1, declared: 1, disabling: 0, posedge: 1, negedge: 0, noedge: 0, bothedge: 0
+0.0.B: Next scan (0) will use per property time limit: 1s * 10 ^ 0 = 1s
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.00 s].
+0.0.Ht: A trace with 3 cycles was found. [0.02 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_in" was covered in 3 cycles in 0.02 s.
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.Ht: Trace Attempt  4	[0.02 s]
+0.0.Ht: A trace with 4 cycles was found. [0.02 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[0].data_out" was covered in 4 cycles in 0.02 s.
+0.0.Ht: Trace Attempt  5	[0.02 s]
+0.0.B: Trace Attempt  2	[0.01 s]
+0.0.B: Trace Attempt  3	[0.01 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.Ht: Trace Attempt  6	[0.03 s]
+0.0.Ht: A trace with 6 cycles was found. [0.04 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[1].data_in" was covered in 6 cycles in 0.04 s.
+0.0.Ht: Trace Attempt  7	[0.04 s]
+0.0.B: Trace Attempt  5	[0.04 s]
+0.0.Ht: A trace with 7 cycles was found. [0.06 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_in" was covered in 7 cycles in 0.06 s.
+0.0.Ht: A trace with 7 cycles was found. [0.06 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_AW.genblk6.core.genblk7.COVER[1].data_out" was covered in 7 cycles in 0.06 s.
+0.0.Ht: Trace Attempt  8	[0.06 s]
+0.0.Ht: A trace with 8 cycles was found. [0.08 s]
+INFO (IPF047): 0.0.Ht: The cover property "top.sc_r.genblk6.core.genblk7.COVER[1].data_out" was covered in 8 cycles in 0.08 s.
+0.0.Ht: Trace Attempt  9	[0.10 s]
+0.0.N: Trace Attempt  1	[0.26 s]
+0.0.N: Trace Attempt  2	[0.26 s]
+0.0.N: Trace Attempt  3	[0.27 s]
+0.0.N: Trace Attempt  4	[0.28 s]
+0.0.N: Trace Attempt  5	[0.28 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Trace Attempt  8	[0.31 s]
+0.0.N: A proof was found: No trace exists. [0.33 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity" was proven in 0.33 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.33 s].
+0.0.N: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk1.data_integrity"	[0.29 s].
+0.0.B: Starting proof for property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.B: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.01 s]
+0.0.N: Trace Attempt  2	[0.01 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: A proof was found: No trace exists. [0.01 s]
+INFO (IPF057): 0.0.N: The property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow" was proven in 0.01 s.
+0.0.N: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.01 s].
+0.0.N: Last scan. Per property time limit: 0s
+0.0.N: Starting proof for property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.N: Trace Attempt  1	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  3	[0.00 s]
+0.0.N: Trace Attempt  4	[0.00 s]
+0.0.N: Trace Attempt  4	[0.01 s]
+0.0.B: Stopped processing property "top.sc_r.genblk6.core.genblk5.genblk2.no_overflow"	[0.02 s].
+0.0.B: Last scan. Per property time limit: 0s
+0.0.B: Starting proof for property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.00 s].
+0.0.B: Trace Attempt  1	[0.00 s]
+0.0.B: Trace Attempt  2	[0.00 s]
+0.0.N: Trace Attempt  5	[0.01 s]
+0.0.B: Trace Attempt  3	[0.00 s]
+0.0.B: Trace Attempt  4	[0.01 s]
+0.0.B: Trace Attempt  5	[0.01 s]
+0.0.N: Trace Attempt  1	[0.04 s]
+0.0.N: Trace Attempt  2	[0.04 s]
+0.0.N: Trace Attempt  3	[0.04 s]
+0.0.N: Trace Attempt  4	[0.05 s]
+0.0.N: Validation of fixpoint was successful. Time = 0.00
+0.0.N: Requesting engine job to stop
+0.0.B: Requesting engine job to stop
+0.0.Hp: Requesting engine job to terminate
+0.0.Ht: Requesting engine job to terminate
+INFO (IPF144): 0: Initiating shutdown of proof [0.54 s]
+0.0.N: A proof was found: No trace exists. [0.05 s]
+INFO (IPF057): 0.0.N: The property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow" was proven in 0.05 s.
+0.0.N: Stopped processing property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.05 s].
+0.0.N: All properties determined. [0.05 s]
+0.0.Ht: Interrupted (multi)
+0.0.Ht: Trace Attempt 19	[0.37 s]
+0.0.Ht: All properties determined. [0.37 s]
+0.0.Ht: Exited with Success (@ 0.55 s)
+0: ProofGrid usable level: 0
+0.0.N: Exited with Success (@ 0.55 s)
+0.0.Hp: Interrupted (multi)
+0.0.Hp: All properties determined. [0.55 s]
+0.0.B: Stopped processing property "top.sc_AW.genblk6.core.genblk5.genblk2.no_overflow"	[0.05 s].
+0.0.B: Trace Attempt  9	[0.04 s]
+0.0.B: All properties determined. [0.05 s]
+0.0.B: Exited with Success (@ 0.55 s)
+0.0.Hp: Exited with Success (@ 0.56 s)
+0: --------------------------------------------------------------
+ProofGrid Summary (utilization 77.63 %)
+--------------------------------------------------------------
+     engines started                               :     4
+     engine jobs started                           :     4
+
+    Average time in state (seconds)
+    ------------------------------------------------------
+    Engine  Pending     Running        Dead    Utilization
+    ------------------------------------------------------
+      N        0.11        0.50        0.00       82.50 %
+     Hp        0.06        0.53        0.00       90.39 %
+     Ht        0.17        0.37        0.00       68.28 %
+      B        0.17        0.36        0.00       67.45 %
+    all        0.13        0.44        0.00       77.63 %
+
+    Total time in state (seconds)
+    -----------------------------------------
+            Pending     Running        Dead  
+    -----------------------------------------
+               0.51        1.76        0.00
+
+    Data read    : 91.70 kiB
+    Data written : 7.89 kiB
+
+0: All pending notifications were processed.
+INFO (IPF059): Completed proof on task: "<embedded>" for proof thread 0
+
+==============================================================
+SUMMARY
+==============================================================
+           Properties Considered              : 83
+                 assertions                   : 73 (39 disabled)
+                  - proven                    : 26 (35.6164%)
+                  - bounded_proven (user)     : 0 (0%)
+                  - bounded_proven (auto)     : 0 (0%)
+                  - marked_proven             : 0 (0%)
+                  - cex                       : 8 (10.9589%)
+                  - ar_cex                    : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 39 (39 disabled)                                 (53.4247%)
+                  - error                     : 0 (0%)
+                 covers                       : 10
+                  - unreachable               : 0 (0%)
+                  - bounded_unreachable (user): 0 (0%)
+                  - covered                   : 10 (100%)
+                  - ar_covered                : 0 (0%)
+                  - undetermined              : 0 (0%)
+                  - unknown                   : 0 (0%)
+                  - error                     : 0 (0%)
+[<embedded>] % visualize -violation -property <embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genPropChksWRInf.genNoWrTblOverflow.master_aw_wr_tbl_no_overflow -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genPropChksWRInf.genNoWrTblOverflow.master_aw_wr_tbl_no_overflow".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genPropChksRDInf.genNoRdTblOverflow.master_ar_rd_tbl_no_overflow".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awaddr_stable".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genStableChks.genStableChksWRInf.master_aw_awvalid_stable".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.slave.genStableChks.genStableChksRDInf.master_ar_araddr_stable".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.sc_AW.genblk6.core.genblk5.genblk1.data_integrity".
+cex
+[<embedded>] % visualize -violation -property <embedded>::top.assert_W_DATA -new_window
+INFO (IVS015): Setting Visualize task to "<embedded>".
+INFO (IVS008): Expanding analysis region to enable visualization of "<embedded>::top.assert_W_DATA".
+cex
+INFO (IPL005): Received request to exit from the console.
+INFO (IPL014): Waiting for the Tcl-thread to exit.
+INFO: Waiting for proof threads to stop...
+INFO: Proof threads stopped.
+INFO (IPL018): The peak resident set memory use for this session was 0.493 GB.
+INFO (IPL015): The Tcl-thread exited with status 0.
+INFO (IPL016): Exiting the analysis session with status 0.
