@@ -18,3 +18,4 @@ Input會給keyboard八個數字 anwser五個數字 weight五個數字 match targ
 而且這個方法簡單又完善，因為把所有的組合都拿來做比較了所以不會有corner case的問題  
 唯一的缺點就是latency很大，但是當時真的打得出來1demo就覺得很感動了  
 
+![image](https://github.com/GlenChenPo/Pictures/blob/main/Lab02.png)
