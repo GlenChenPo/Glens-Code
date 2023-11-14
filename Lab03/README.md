@@ -21,3 +21,6 @@ lab3是要打出走迷宮的遊戲，前幾屆有走迷宮我們這屆多了陷�
 所以助教有些特殊的情況讓我的counter數爆了，是讓我學到一課這是我原本沒有考量到會發生的情況  
 但lab3我就 2demo了吐血....
 
+![image](https://github.com/GlenChenPo/Pictures/blob/main/Lab03.png)
+
+
