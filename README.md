@@ -15,7 +15,7 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗
 - Midterm Project: Time of Flight (TOF)
 - Lab07: Clock Domain Crossing (CDC)
 - Lab08: Pokemon Simulation Game
-- Lab09: Verification: Pokemon Simulation Game (From Lab08)
+- Lab09: Verification: Pokemon Simulation Game (from Lab08)
 - Lab10: Image Display Control (IDC)
 - Lab Bonus: Formal Verification
 - Lab11: Local Binary Pattern
