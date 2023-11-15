@@ -20,7 +20,7 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗
 - Lab Bonus: Formal Verification
 - Lab11: Local Binary Pattern
 - Lab12: Digit Matching Machine APRII
-- Final Project: Time of Flight (TOF) (diff. to Midtern)
+- Final Project: Time of Flight (TOF) (diff. to Midterm)
 
 
 
