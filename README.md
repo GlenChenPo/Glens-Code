@@ -6,6 +6,21 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗
 後來幾屆密碼有改成新的模式但我這屆pdf的密碼為老樣子，這一屆之前有修過iclab的同學們應該一定都知道這個密碼  
 
 ## Labs
+- Lab01: Code Calculator
+- Lab02: Digit Matching Machine 
+- Lab03: Escape (Maze Issue)
+- Lab04: Convolution Neural Network
+- Lab05: Template Matching with Image Processing
+- Lab06: RSA (Rivest–Shamir–Adleman)
+- Lab07: Clock Domain Crossing (CDC)
+- Lab08: Pokemon Simulation Game
+- Lab09: Verification: Pokemon Simulation Game (From Lab08)
+- Lab10: Image Display Control (IDC)
+- Lab Bonus: Formal Verification
+- Lab11: Local Binary Pattern
+- Lab12: Digit Matching Machine APRII
+- Midterm Project: Time of Flight (TOF)
+- Final Project: Time of Flight (TOF) (diff. to Midtern)
 
 
 
