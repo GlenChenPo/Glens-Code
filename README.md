@@ -25,7 +25,7 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗
 
 
 
-## PASSING RATE
+## Passing Rate
 我們這屆好像修課人數特別多可能越來越多人開始了解 ic desiner這個職業  
 最一開始修課人數我記得是 189人  
 開學加退選就退了幾個剩下 175人  
