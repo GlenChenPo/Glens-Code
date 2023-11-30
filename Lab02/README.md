@@ -1,5 +1,5 @@
 Lab2 的內容是要打出以前上課很喜歡跟同學玩的遊戲 Bulls and Cows 就是幾A幾B  
-但條件當然沒有這麼簡單，數字不只四個每個數字也不像原本只有0~9
+但條件當然沒有這麼簡單，數字不只四個每個數字也不像原本只有0~9  
 Input會給keyboard八個數字 anwser五個數字 weight五個數字 match target兩個數字  
 我們要從keyboard中取五個數字來達到 match target 所表示的幾A幾B情況  
 收回前言這次lab好難，能感受到lab1跟lab2難度有大幅落差  
