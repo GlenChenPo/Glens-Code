@@ -6,7 +6,7 @@ NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗
 由於pdf屬於這堂課的財產是隱私的，我只分享我所打出來的code與我所學習到的內容  
 如果是有修過iclab的同學想看pdf，後來幾屆密碼有改成新的模式但我這屆pdf的密碼為老樣子  
 這一屆之前有修過iclab的同學們應該一定都知道這個密碼 
-Study Journal: https://hackmd.io/@FZOxg4EGQ7GdOWTEzAvHiA/iclabstudyjournal/%2FmSLXbx0HQ92Vu3XgU6nu1A
+Study Journal: https://hackmd.io/@GlenChenPo/studyjournal1/%2FmSLXbx0HQ92Vu3XgU6nu1A
 
 ## Labs & Projects
 - Lab01: Code Calculator
