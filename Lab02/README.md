@@ -8,7 +8,7 @@ Input會給keyboard八個數字 anwser五個數字 weight五個數字 match targ
 而且後來又再新發現更多corner case，所以助教的Exercise.pdf最後出到了ver3  
 打一打以為打完了又出現corner case真的超絕望，判斷式越來越多  
 我的作法是先從八個數字裡面判斷哪五個是正確的數字哪三個是錯的數字  
-照SPEC五個Anwser都會出現在keyboard中，所以八取五最多只有可能到3A0B或0A3B不會有2A以下的情況  
+照SPEC五個Anwser都會出現在keyboard中，所以八取五最多只有可能到2A0B或0A2B不會有1A以下的情況  
 而5A、4A都比較好做判斷，但3A、2A的情況實在太多種了，當時我們就開始討論覺得根本就打不完  
 但後來我們想到了解法，有點算窮舉吧，我們直接將所有排列組合都輸入進去  
 當那組數字符合match target，將他乘上weight後跟前一筆存下來的數字比大小  
