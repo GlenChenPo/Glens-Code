@@ -1,5 +1,5 @@
 # 2022_SPRING_NCTU_ICLAB
-NCTU 2022 Fall Integrated Circuit Design Laboratory 積體電路設計實驗  
+NCTU 2022 Spring Integrated Circuit Design Laboratory 積體電路設計實驗  
 教授:李鎮宜  
   
 紀錄一下我這個非本科系挑戰iclab的過程  
