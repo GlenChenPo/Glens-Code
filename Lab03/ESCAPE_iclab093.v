@@ -123,29 +123,7 @@ begin
         cnt  <= 0;
     end
 end
-/*-----------------------------------------------------------------------------------
-     FFFFFFFFF LLL           AAAA       GGGGGGG          ------------
-     FF        LLL          AA  AA     G                 |          |          
-     FFFFFFF   LLL         AA    AA   G     GGGGG        |          |          
-     FF        LLL        AAAAAAAAAA   G     GGG         |-----------                    
-     FF        LLLLLLLLL AA        AA   GGGGGGG          |                    
-*///---------------------------------------------------------------------------------
-//  always @(posedge clk or negedge rst_n)
-// begin
-//   if (~rst_n)
-//   begin
-//   flag_4to5 <= 0;
-//   end
-//   else
-//   begin
-STATE2_TRAP
 
-
-
-    //   end
-
-
-    // end
     /*-----------------------------------------------------------------------------------
          CCCCCCCC  UU      UU  RRRRRRRR    RRRRRRRR    EEEEEEEEEE  NN      NN  TTTTTTTTTT                                             
         CC         UU      UU  RR      RR  RR      RR  EE          NNNN    NN      TT                                    
