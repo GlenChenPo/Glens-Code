@@ -26,12 +26,12 @@ output reg [8:0] out_data;
 // state
 parameter IDLE         = 3'd0;
 parameter STATE1_MAPP  = 3'd1; //get the MAP
-parameter STATE2_  = 3'd2; //save the trap to map1
+parameter STATE2_TRAP  = 3'd2; //save the trap to map1
 parameter STATE3_D_H_  = 3'd3; //del deadend & make hostage road
 parameter STATE4_COMB  = 3'd4; //hostage make the road
 parameter STATE5_WALK  = 3'd5; //walk to the goal
 parameter STATE6_CALC  = 3'd6; //count
-parameter STATE3_  = 3'd7; //output the result
+parameter STATE7_OUTPUT  = 3'd7; //output the result
 //genvar
 
 // ===============================================================
@@ -106,11 +106,11 @@ begin
     begin
         cnt <= cnt+1;
     end
-    else if (current_state == STATE1_MAPP || current_state == STATE2_)
+    else if (current_state == STATE1_MAPP || current_state == STATE2_TRAP)
     begin
         cnt <= cnt+1;
     end
-    else if (current_state == STATE3_)
+    else if (current_state == STATE7_OUTPUT)
     begin
         cnt <= cnt+1;
     end
@@ -138,7 +138,7 @@ end
 //   end
 //   else
 //   begin
-STATE2_
+STATE2_TRAP
 
 
 
@@ -181,17 +181,17 @@ STATE2_
             STATE1_MAPP: //GET THE MAP
             begin
                 if (cnt == 288 && in_valid1)
-                    next_state = STATE2_;
+                    next_state = STATE2_TRAP;
                 else
                     next_state = STATE1_MAPP;
             end
 
-            STATE2_: //SAVE THE TRAP
+            STATE2_TRAP: //SAVE THE TRAP
             begin
                 if (flag_2to3==1)
                     next_state = STATE3_D_H_;
                 else
-                    next_state = STATE2_;
+                    next_state = STATE2_TRAP;
             end
 
             STATE3_D_H_: //Del the deadend
@@ -208,7 +208,7 @@ STATE2_
 
             STATE5_WALK: //Walk to the goal
                 if (flag_5to7==1)
-                    next_state = STATE3_;
+                    next_state = STATE7_OUTPUT;
                 else if(flag_5to6==1)
                     next_state = STATE6_CALC;
                 else
@@ -216,17 +216,17 @@ STATE2_
 
             STATE6_CALC: //Walk to the goal
                 // if(flag_6to7==1)
-                //   next_state = STATE3_;
+                //   next_state = STATE7_OUTPUT;
                 if(flag_6to5==1)
                     next_state = STATE5_WALK;
                 else
                     next_state = STATE6_CALC;
 
-            STATE3_: //GET THE OUPUT
+            STATE7_OUTPUT: //GET THE OUPUT
                 if(flagEND)
                     next_state = IDLE;
                 else
-                    next_state = STATE3_;
+                    next_state = STATE7_OUTPUT;
 
             default:
                 next_state = IDLE;
@@ -342,7 +342,7 @@ begin : mapping
                 end
             end
         end
-        else if (current_state==STATE2_)
+        else if (current_state==STATE2_TRAP)
         begin
             for ( i=1 ; i<=17 ; i=i+1 )
             begin
@@ -1220,7 +1220,7 @@ begin : mapping
                       OO     OO   UU    UU      TT            
                         OOOOO      UUUUUU       TT            
         *///-----------------------------------------------------------------------------------------------------*--  
-        else if (current_state == STATE3_)
+        else if (current_state == STATE7_OUTPUT)
         begin
             out_valid1 <= 1;
             //              1 hostage
@@ -1381,7 +1381,7 @@ begin : del_the_deadend
                     end
                 end
         end
-        else  if (current_state==STATE2_)
+        else  if (current_state==STATE2_TRAP)
         begin
             for (i=1;i<=17;i=i+1)
                 for (j=1;j<=17;j=j+1)
@@ -1434,7 +1434,7 @@ begin : map2_del_the_deadend
                     end
                 end
         end
-        else  if (current_state==STATE2_)
+        else  if (current_state==STATE2_TRAP)
         begin
             map2[0][1]<=1;
             map2[1][0]<=1;
