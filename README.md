@@ -30,7 +30,7 @@ Study Journal: https://hackmd.io/@GlenChenPo/studyjournal1/%2FmSLXbx0HQ92Vu3XgU6
 
 ## Passing Rate
 我們這屆好像修課人數特別多可能越來越多人開始了解 ic desiner這個職業  
-最一開始修課人數我記得是 189人  
+最一開始修課人數是 189人  
 開學加退選就退了幾個剩下 175人  
 期中停修後(以lab11來看)剩下 121人  
 最後學期結束有通過這堂課估算為過關人數為 90人(第九十名最終成績為63.233)  
