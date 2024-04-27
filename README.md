@@ -3,7 +3,7 @@ NCTU 2022 Spring Integrated Circuit Design Laboratory 積體電路設計實驗
 教授:李鎮宜  
   
 紀錄一下我這個非本科系挑戰iclab的過程  
-由於pdf屬於這堂課的財產是隱私的，我只分享我所打出來的code與我所學習到的內容  
+由於pdf屬於這堂課的財產是隱私的，我只分享我所打出來的code與該code的spec和我所學習到的內容  
 如果是有修過iclab的同學想看pdf，後來幾屆密碼有改成新的模式但我這屆pdf的密碼為老樣子  
 這一屆之前有修過iclab的同學們應該一定都知道這個密碼 
 Study Journal: https://hackmd.io/@GlenChenPo/studyjournal1/%2FmSLXbx0HQ92Vu3XgU6nu1A
