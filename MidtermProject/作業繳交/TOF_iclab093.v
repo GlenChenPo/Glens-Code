@@ -242,10 +242,10 @@ reg [119:0] bin_for_last ;
 reg in_valid_d1 , rvalid_m_inf_d1 , rvalid_m_inf_d2 , rvalid_m_inf_d3;
 
 // flag
-reg switch_1 , pause;             // use to switch which memo
-reg flag_2to3 , flag_3toI , flag_5to6 , flag5to8 , flag_write , flag_bwrite; // use to switch state
+reg switch_1;             // use to switch which memo
+reg flag_write; 
 reg flag_1stFinish , flag_saveHistFinish , flag_finish;
-reg FinTrans , FinWrite , FinRead , FinDIS;
+reg FinTrans;
 // store the first memo_out
 reg [127:0] Store_1 ;
 
@@ -312,8 +312,6 @@ begin
         STATE5_READ:
             if (rvalid_m_inf_d3 && rvalid_m_inf_d2==0)
                 next_state = STATE6_WAVALID ;
-            else if(flag5to8)
-                next_state = STATE9_BUSY;
             else
                 next_state =  STATE5_READ;
         STATE6_WAVALID:
