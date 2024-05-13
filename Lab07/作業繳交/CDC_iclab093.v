@@ -133,24 +133,6 @@ end
 //=============================================================
 //            cnt
 //=============================================================
-reg [9:0] cnt1;
-always @(posedge clk1 or negedge rst_n) //
-begin
-    if(~rst_n)
-        cnt1 <= 0;
-    else if (cnt1==1000)
-    begin
-        cnt1 <= 100;
-    end
-    else if (current_state==STATE_1)
-    begin
-        cnt1 <= cnt1 + 1;
-    end
-    else if (current_state==IDLE)
-    begin
-        cnt1 <= 0;
-    end
-end
 always @(posedge clk2 or negedge rst_n)
 begin
     if(~rst_n)
@@ -229,7 +211,7 @@ end
 //==========================================================================
 //             ready
 //==========================================================================
-always @(*)
+always @(posedge clk1 or negedge rst_n)
 begin
     if (rst_n==0)
     begin
