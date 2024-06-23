@@ -36,14 +36,14 @@ logic [6:0]  c_s , n_s;
 logic [3:0] action;
 logic [7:0] ID_1 , ID_2 , ID_3;
 logic [63:0] temp_info_1 , temp_info_2 , info_for_out;
-logic [3:0]  temp_arror;
+logic [3:0]  temp_error;
 logic [15:0] temp_D;
 
 logic flag_usedBracer;
-logic [4:0] Big_cnt;
+logic [10:0] Big_cnt;
 logic flag_action;
-logic flag_Cinvalid;
-logic flag_fin_attack ,  flag_finAction;
+logic flag_changeID , flag_Cinvalid , f_fin_loading , flag_saving2 , flag_finAction;
+logic flag_fin_attack;
 logic flag_item_pokemon;
 //================================================================
 //  FSM parameter
@@ -392,7 +392,7 @@ always_ff @(posedge clk or negedge inf.rst_n)
 begin
     if (!inf.rst_n)begin
         temp_info_1 <= 0;
-        temp_arror <= 0;
+        temp_error <= 0;
         flag_usedBracer <= 0;
         flag_finAction  <= 0;
     end
@@ -415,14 +415,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd16) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[63:60]==4'hF) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -437,14 +437,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd128) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[59:56]==4'hF) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -459,14 +459,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd300) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[55:52]==4'hF) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -481,14 +481,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd64) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[51:48]==4'hF) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -503,14 +503,14 @@ begin
               begin
                  if (temp_info_1[45:32]<=14'd800) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[47:46]!=2'b00) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -525,14 +525,14 @@ begin
               begin
                  if (temp_info_1[45:32]<=14'd800) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[47:46]!=2'b00) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -547,14 +547,14 @@ begin
               begin
                  if (temp_info_1[45:32]<=14'd800) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[47:46]!=2'b00) //bag is full
                       begin
-                       temp_arror <= 4'b0100;
+                       temp_error <= 4'b0100;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -572,14 +572,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd100) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[31:28]!=4'b0) //already have pokemon
                       begin
-                       temp_arror <= 4'b0001;
+                       temp_error <= 4'b0001;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -598,14 +598,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd90) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[31:28]!=4'b0) //already have pokemon
                       begin
-                       temp_arror <= 4'b0001;
+                       temp_error <= 4'b0001;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -624,14 +624,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd110) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[31:28]!=4'b0) //already have pokemon
                       begin
-                       temp_arror <= 4'b0001;
+                       temp_error <= 4'b0001;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -650,14 +650,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd120) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[31:28]!=4'b0) //already have pokemon
                       begin
-                       temp_arror <= 4'b0001;
+                       temp_error <= 4'b0001;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -676,14 +676,14 @@ begin
               begin
                 if (temp_info_1[45:32]<=14'd130) //don't have money
                   begin
-                    temp_arror <= 4'b0010;
+                    temp_error <= 4'b0010;
                     flag_finAction <= 1;
                   end
                 else 
                   begin
                     if (temp_info_1[31:28]!=4'b0) //already have pokemon
                       begin
-                       temp_arror <= 4'b0001;
+                       temp_error <= 4'b0001;
                        flag_finAction <= 1; 
                       end
                     else 
@@ -708,7 +708,7 @@ begin
               begin
                 if (temp_info_1[63:60]==0) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -722,7 +722,7 @@ begin
               begin
                 if (temp_info_1[59:56]==0) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -736,7 +736,7 @@ begin
               begin
                 if (temp_info_1[55:52]==0) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -750,7 +750,7 @@ begin
               begin
                 if (temp_info_1[51:48]==0) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -764,7 +764,7 @@ begin
               begin
                 if (temp_info_1[47:46]!=2'b01) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -778,7 +778,7 @@ begin
               begin
                 if (temp_info_1[47:46]!=2'b10) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -792,7 +792,7 @@ begin
               begin
                 if (temp_info_1[47:46]!=2'b11) // don't have item
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     flag_finAction <= 1;
                   end
                 else 
@@ -807,7 +807,7 @@ begin
           begin
             if (temp_info_1[31:28]==4'b0) 
               begin
-                temp_arror <= 4'b0110;
+                temp_error <= 4'b0110;
                 flag_finAction <= 1;  
               end
             else 
@@ -816,7 +816,7 @@ begin
                   begin
                     if(temp_info_1[31:28]==4'b0001)//pokemon is lowest 
                       begin
-                        temp_arror <= 4'b1000; 
+                        temp_error <= 4'b1000; 
                         flag_finAction <= 1;
                       end
                     else if(temp_info_1[31:28]==4'b0010)//pokemon is middle
@@ -838,7 +838,7 @@ begin
                   begin
                     if(temp_info_1[31:28]==4'b0001)//pokemon is lowest 
                       begin
-                        temp_arror <= 4'b1000; 
+                        temp_error <= 4'b1000; 
                         flag_finAction <= 1; 
                       end
                     else if(temp_info_1[31:28]==4'b0010)//pokemon is middle
@@ -860,7 +860,7 @@ begin
                   begin
                     if(temp_info_1[31:28]==4'b0001)//pokemon is lowest 
                       begin
-                        temp_arror <= 4'b1000; 
+                        temp_error <= 4'b1000; 
                         flag_finAction <= 1; 
                       end
                     else if(temp_info_1[31:28]==4'b0010)//pokemon is middle
@@ -882,7 +882,7 @@ begin
                   begin
                     if(temp_info_1[31:28]==4'b0001)//pokemon is lowest 
                       begin
-                        temp_arror <= 4'b1000; 
+                        temp_error <= 4'b1000; 
                         flag_finAction <= 1; 
                       end
                     else if(temp_info_1[31:28]==4'b0010)//pokemon is middle
@@ -902,7 +902,7 @@ begin
                   end
                 else if (temp_info_1[27:24]==4'b0101) //normal
                   begin 
-                    temp_arror <= 4'b1000; 
+                    temp_error <= 4'b1000; 
                     flag_finAction <= 1;         
                   end   
               end      
@@ -917,600 +917,596 @@ begin
       begin
         if (temp_info_1[31:0]==32'b0) // u don't have any pokemon 
           begin
-            temp_arror <= 4'b0110;
+            temp_error <= 4'b0110;
             temp_info_1 <= temp_info_1;
             flag_finAction <= 1;
           end
         else if(flag_finAction==0)
         begin            
-          if (temp_D[3:0]==4'b0001)//-------- Berry  HP+'d32 ---------------------------
-            begin
-              if (temp_info_1[63:60]==4'b0) 
-                begin
-                  temp_arror <= 4'b1010;
-                  temp_info_1 <= temp_info_1;
-                end
-              else 
-                begin
-                  if (temp_info_1[27:24]==4'b0001) //grass
+             if (temp_D[3:0]==4'b0001)//--------Berry------------------------------------
+               begin
+                  if (temp_info_1[63:60]==4'b0) 
                     begin
-                      if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd222) 
-                        begin// highest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd254;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd160) 
-                        begin// middle  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd192;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd96) 
-                        begin// lowest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd128;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end      
+                      temp_error <= 4'b1010;
+                      temp_info_1 <= temp_info_1;
                     end
-                  else if (temp_info_1[27:24]==4'b0010) //fire 
-                    begin
-                      if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd193) 
-                        begin// highest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd225;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd145) 
-                        begin// middle  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd177;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd87) 
-                        begin// lowest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd119;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end    
-                    end
-                  else if (temp_info_1[27:24]==4'b0100) //water 
-                    begin
-                      if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd213) 
-                        begin// highest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd245;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd155) 
-                        begin// middle  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd187;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd93) 
-                        begin// lowest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd125;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end    
-                    end
-                  else if (temp_info_1[27:24]==4'b1000) //electric 
-                    begin
-                      if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd203) 
-                        begin// highest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd235;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd150) 
-                        begin// middle  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd182;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd90) 
-                        begin// lowest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd122;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end    
-                    end
-                 else if (temp_info_1[27:24]==4'b0101) //normal 
-                    begin
-                      if (temp_info_1[23:16]>=8'd92) 
-                        begin// lowest  will full HP
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd124;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                          flag_finAction <= 1;
-                        end      
-                    end           
                   else 
                     begin
-                      temp_arror <= 4'b0;
-                      temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
-                      temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
-                      flag_finAction <= 1;
-                    end
-                end
-            end               
-          else if (temp_D[3:0]==4'b0010)//---Medicine recover full HP------------------- 
-            begin
-              if (temp_info_1[59:56]==4'b0) 
-                begin
-                  temp_arror <= 4'b1010;
-                  temp_info_1 <= temp_info_1;    
-                end
-              else 
-                begin
-                  if (temp_info_1[27:24]==4'b0001) //grass
-                    begin
-                      if (temp_info_1[31:28]==4'b0100) 
-                        begin// highest
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd254;
-                          temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
+                      if (temp_info_1[27:24]==4'b0001) //grass
+                        begin
+                          if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd222) 
+                            begin// highest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd254;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd160) 
+                            begin// middle  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd192;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd96) 
+                            begin// lowest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd128;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else 
+                            begin
+                              temp_error <= 4'b0;
+                              temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end      
+                        end
+                      else if (temp_info_1[27:24]==4'b0010) //fire 
+                        begin
+                          if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd193) 
+                            begin// highest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd225;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd145) 
+                            begin// middle  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd177;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd87) 
+                            begin// lowest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd119;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else 
+                            begin
+                              temp_error <= 4'b0;
+                              temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end    
+                        end
+                      else if (temp_info_1[27:24]==4'b0100) //water 
+                        begin
+                          if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd213) 
+                            begin// highest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd245;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd155) 
+                            begin// middle  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd187;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd93) 
+                            begin// lowest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd125;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else 
+                            begin
+                              temp_error <= 4'b0;
+                              temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end    
+                        end
+                      else if (temp_info_1[27:24]==4'b1000) //electric 
+                        begin
+                          if (temp_info_1[31:28]==4'b0100 && temp_info_1[23:16]>=8'd203) 
+                            begin// highest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd235;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0010 && temp_info_1[23:16]>=8'd150) 
+                            begin// middle  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd182;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0001 && temp_info_1[23:16]>=8'd90) 
+                            begin// lowest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd122;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else 
+                            begin
+                              temp_error <= 4'b0;
+                              temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end    
+                        end
+                     else if (temp_info_1[27:24]==4'b0101) //normal 
+                        begin
+                          if (temp_info_1[23:16]>=8'd92) 
+                            begin// lowest  will full HP
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd124;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else 
+                            begin
+                              temp_error <= 4'b0;
+                              temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                              temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
+                              flag_finAction <= 1;
+                            end      
+                        end           
+                      else 
+                        begin
+                          temp_error <= 4'b0;
+                          temp_info_1[23:16] <= temp_info_1[23:16] + 8'd32;
+                          temp_info_1[63:60] <= temp_info_1[63:60] - 4'b0001;
                           flag_finAction <= 1;
                         end
-                      else if (temp_info_1[31:28]==4'b0010) 
-                        begin// middle
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd192;
-                          temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
-                          flag_finAction <= 1;
-                        end
-                      else if (temp_info_1[31:28]==4'b0001) 
-                        begin// lowest
-                          temp_arror <= 0;
-                          temp_info_1[23:16] <= 8'd128;
-                          temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
-                          flag_finAction <= 1;
-                        end    
                     end
-                  else if (temp_info_1[27:24]==4'b0010) //fire 
+               end               
+               else if (temp_D[3:0]==4'b0010)//---Medicine------------------------------- 
+               begin
+                   if (temp_info_1[59:56]==4'b0) begin
+                     temp_error <= 4'b1010;
+                     temp_info_1 <= temp_info_1;    
+                   end
+                   else 
                     begin
+                      if (temp_info_1[27:24]==4'b0001) //grass
+                        begin
+                          if (temp_info_1[31:28]==4'b0100) 
+                            begin// highest
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd254;
+                              temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0010) 
+                            begin// middle
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd192;
+                              temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
+                              flag_finAction <= 1;
+                            end
+                          else if (temp_info_1[31:28]==4'b0001) 
+                            begin// lowest
+                              temp_error <= 0;
+                              temp_info_1[23:16] <= 8'd128;
+                              temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
+                              flag_finAction <= 1;
+                            end    
+                        end
+                      else if (temp_info_1[27:24]==4'b0010) //fire 
+                        begin
                           if (temp_info_1[31:28]==4'b0100) 
                             begin// highest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd225;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0010) 
                             begin// middle  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd177;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0001) 
                             begin// lowest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd119;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end 
-                    end
-                  else if (temp_info_1[27:24]==4'b0100) //water 
-                    begin
+                        end
+                      else if (temp_info_1[27:24]==4'b0100) //water 
+                        begin
                           if (temp_info_1[31:28]==4'b0100) 
                             begin// highest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd245;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0010) 
                             begin// middle  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd187;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0001) 
                             begin// lowest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd125;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end 
-                    end
-                  else if (temp_info_1[27:24]==4'b1000) //electric 
-                    begin
+                        end
+                      else if (temp_info_1[27:24]==4'b1000) //electric 
+                        begin
                           if (temp_info_1[31:28]==4'b0100) 
                             begin// highest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd235;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0010) 
                             begin// middle  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd182;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end
                           else if (temp_info_1[31:28]==4'b0001) 
                             begin// lowest  will full HP
-                              temp_arror <= 0;
+                              temp_error <= 0;
                               temp_info_1[23:16] <= 8'd122;
                               temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                               flag_finAction <= 1;
                             end 
-                    end
-                  else if (temp_info_1[27:24]==4'b0101) //normal 
-                    begin
-                          temp_arror <= 0;
+                        end
+                     else if (temp_info_1[27:24]==4'b0101) //normal 
+                        begin
+                          temp_error <= 0;
                           temp_info_1[23:16] <= 8'd124;
                           temp_info_1[59:56] <= temp_info_1[59:56] - 4'b0001;
                           flag_finAction <= 1;   
-                    end           
-                end
-            end
-          else if (temp_D[3:0]==4'b0100)//---Candy EXP+'d15 ---------------------------- 
-            begin
-              if (temp_info_1[55:52]==4'b0) 
-                begin
-                 temp_arror <= 4'b1010;
-                 temp_info_1 <= temp_info_1;    
-                end
-              else 
-                begin
-                  if (temp_info_1[27:24]==4'b0001) // Grass
+                        end           
+                    end
+               end
+               else if (temp_D[3:0]==4'b0100)//---Candy---------------------------------- 
+               begin
+                   if (temp_info_1[55:52]==4'b0) 
                     begin
-                      if (temp_info_1[31:28]==4'b0001) // Lowest
+                     temp_error <= 4'b1010;
+                     temp_info_1 <= temp_info_1;    
+                    end
+                   else 
+                    begin
+                      if (temp_info_1[27:24]==4'b0001) // Grass
+                      begin
+                        if (temp_info_1[31:28]==4'b0001) // Lowest
                         begin
                           if (temp_info_1[7:0]>=8'h11) // pokemon evolve
                           begin
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                            temp_info_1[23:16] <= 8'd192; // HP reset 
-                            temp_info_1[15:8]  <= 8'd94; //ATK reset
+                            temp_info_1[23:16] <= 8'hC0; // HP reset 'd192 = 'hC0 
+                            temp_info_1[15:8]  <= 8'h5E; //ATK reset 'd94  = 'h5E
                             temp_info_1[7:0]   <= 8'b0;  //exp reset
                             flag_usedBracer <= 0;
                             flag_finAction <= 1;
                           end 
                           else 
                           begin
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
                             flag_usedBracer <= flag_usedBracer; 
                             flag_finAction <= 1;   
                           end
                         end
-                      else if (temp_info_1[31:28]==4'b0010) // Middle
+                        else if (temp_info_1[31:28]==4'b0010) // Middle
                         begin
-                          if (temp_info_1[7:0]>=8'h30) // pokemon evolve
-                            begin
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                              temp_info_1[23:16] <= 8'd254; // HP reset 
-                              temp_info_1[15:8]  <= 8'd123; //ATK reset 
-                              temp_info_1[7:0]   <= 8'b0;  //exp reset
-                              flag_usedBracer <= 0;
-                              flag_finAction <= 1;
-                            end
-                          else 
-                            begin
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
-                              flag_usedBracer <= flag_usedBracer;
-                              flag_finAction <= 1;                             
-                            end   
-                        end
-                      else if (temp_info_1[31:28]==4'b0100) // Highest
-                        begin // only cost Candy but nothing change
-                          temp_arror <= 4'b0;
-                          temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                  else if (temp_info_1[27:24]==4'b0010) // Fire
-                    begin
-                      if (temp_info_1[31:28]==4'b0001) // Lowest
-                        begin
-                          if (temp_info_1[7:0]>=8'd15) // pokemon evolve
-                            begin //39exp lv up
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                              temp_info_1[23:16] <= 8'd177; // HP reset 
-                              temp_info_1[15:8]  <= 8'd96;  //ATK reset 
-                              temp_info_1[7:0]   <= 8'b0;   //exp reset
-                              flag_usedBracer <= 0;
-                              flag_finAction <= 1;
-                            end 
-                          else 
-                            begin
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
-                              flag_usedBracer <= flag_usedBracer;
-                              flag_finAction <= 1;    
-                            end
-                        end
-                      else if (temp_info_1[31:28]==4'b0010) // Middle
-                        begin
-                         if (temp_info_1[7:0]>=8'd44) // pokemon evolve
-                          begin // 59exp lv up
-                            temp_arror <= 4'b0;
+                         if (temp_info_1[7:0]>=8'h30) // pokemon evolve
+                          begin
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                            temp_info_1[23:16] <= 8'd225;// HP reset 
-                            temp_info_1[15:8]  <= 8'd127;//ATK reset
+                            temp_info_1[23:16] <= 8'hFE; // HP reset 'd254 = 'hFE 
+                            temp_info_1[15:8]  <= 8'h7B; //ATK reset 'd123 = 'h7B
                             temp_info_1[7:0]   <= 8'b0;  //exp reset
                             flag_usedBracer <= 0;
                             flag_finAction <= 1;
                           end
                          else 
                           begin
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
                             flag_usedBracer <= flag_usedBracer;
                             flag_finAction <= 1;                             
                           end   
                         end
-                      else if (temp_info_1[31:28]==4'b0100) // Highest
+                        else if (temp_info_1[31:28]==4'b0100) // Highest
                         begin // only cost Candy but nothing change
-                          temp_arror <= 4'b0;
+                          temp_error <= 4'b0;
                           temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                           flag_finAction <= 1; 
                         end
-                    end
-                  else if (temp_info_1[27:24]==4'b0100) // Water
-                    begin
-                      if (temp_info_1[31:28]==4'b0001) // Lowest
+                      end
+                      else if (temp_info_1[27:24]==4'b0010) // Fire
+                       begin
+                        if (temp_info_1[31:28]==4'b0001) // Lowest
                         begin
-                          if (temp_info_1[7:0]>=8'd13) // pokemon evolve
-                            begin // exp28 lv up
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                              temp_info_1[23:16] <= 8'd187; // HP reset 
-                              temp_info_1[15:8]  <= 8'd89; //ATK reset  
-                              temp_info_1[7:0]   <= 8'b0;  //exp reset
-                              flag_usedBracer <= 0;
-                              flag_finAction <= 1;
-                            end 
-                          else 
-                            begin
-                              temp_arror <= 4'b0;
-                              temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                              temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
-                              flag_usedBracer <= flag_usedBracer;
-                              flag_finAction <= 1;    
-                            end
-                        end
-                      else if (temp_info_1[31:28]==4'b0010) // Middle
-                        begin
-                         if (temp_info_1[7:0]>=8'd40) // pokemon evolve
-                          begin //exp55 lv up
-                            temp_arror <= 4'b0;
-                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                            temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                            temp_info_1[23:16] <= 8'd245; // HP reset
-                            temp_info_1[15:8]  <= 8'd113; //ATK reset
-                            temp_info_1[7:0]   <= 8'b0;  //exp reset
-                            flag_usedBracer <= 0;
-                            flag_finAction <= 1;
-                          end
-                         else 
+                          if (temp_info_1[7:0]>=8'h0F) // pokemon evolve
                           begin
-                            temp_arror <= 4'b0;
-                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
-                            flag_usedBracer <= flag_usedBracer;
-                            flag_finAction <= 1;                             
-                          end   
-                        end
-                      else if (temp_info_1[31:28]==4'b0100) // Highest
-                        begin // only cost Candy but nothing change
-                          temp_arror <= 4'b0;
-                          temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                  else if (temp_info_1[27:24]==4'b1000) // Electric
-                    begin
-                      if (temp_info_1[31:28]==4'b0001) // Lowest
-                        begin
-                          if (temp_info_1[7:0]>=8'd11) // pokemon evolve
-                          begin //exp26 lv up
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                            temp_info_1[23:16] <= 8'd182; // HP reset 
-                            temp_info_1[15:8]  <= 8'd97; //ATK reset '
+                            temp_info_1[23:16] <= 8'hB1; // HP reset 'd177 = 'hB1 
+                            temp_info_1[15:8]  <= 8'h60; //ATK reset 'd96  = 'h60
                             temp_info_1[7:0]   <= 8'b0;  //exp reset
                             flag_usedBracer <= 0;
                             flag_finAction <= 1;
                           end 
                           else 
                           begin
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
-                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'd15; //exp + 15
+                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
                             flag_usedBracer <= flag_usedBracer;
                             flag_finAction <= 1;    
                           end
                         end
-                      else if (temp_info_1[31:28]==4'b0010) // Middle
+                        else if (temp_info_1[31:28]==4'b0010) // Middle
                         begin
-                         if (temp_info_1[7:0]>=8'd36) // pokemon evolve
-                          begin // exp51 lv up
-                            temp_arror <= 4'b0;
+                         if (temp_info_1[7:0]>=8'd44) // pokemon evolve
+                          begin // 59exp lv up
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                            temp_info_1[23:16] <= 8'd235; // HP reset
-                            temp_info_1[15:8]  <= 8'd124; //ATK reset
+                            temp_info_1[23:16] <= 8'hE1; // HP reset 'd225 = 'hE1 
+                            temp_info_1[15:8]  <= 8'h7F; //ATK reset 'd127 = 'h7F
                             temp_info_1[7:0]   <= 8'b0;  //exp reset
                             flag_usedBracer <= 0;
                             flag_finAction <= 1;
                           end
                          else 
                           begin
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                             temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
                             flag_usedBracer <= flag_usedBracer;
                             flag_finAction <= 1;                             
                           end   
                         end
-                      else if (temp_info_1[31:28]==4'b0100) // Highest
+                        else if (temp_info_1[31:28]==4'b0100) // Highest
                         begin // only cost Candy but nothing change
-                          temp_arror <= 4'b0;
+                          temp_error <= 4'b0;
                           temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                           flag_finAction <= 1; 
                         end
-                    end
-                  else if (temp_info_1[27:24]==4'b0101) // Normal
+                      end
+                 else if (temp_info_1[27:24]==4'b0100) // Water
                       begin
-                        if (temp_info_1[7:0]>=8'd14) // exp will fixed in high exp
-                        begin //fix in 29
-                          temp_info_1[7:0] <= 8'd29;
-                          temp_arror <= 4'b0;
+                        if (temp_info_1[31:28]==4'b0001) // Lowest
+                        begin
+                          if (temp_info_1[7:0]>=8'd13) // pokemon evolve
+                          begin // exp28 lv up
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+                            temp_info_1[23:16] <= 8'hBB; // HP reset 'd187 = 'hBB 
+                            temp_info_1[15:8]  <= 8'h59; //ATK reset 'd89  = 'h59
+                            temp_info_1[7:0]   <= 8'b0;  //exp reset
+                            flag_usedBracer <= 0;
+                            flag_finAction <= 1;
+                          end 
+                          else 
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
+                            flag_usedBracer <= flag_usedBracer;
+                            flag_finAction <= 1;    
+                          end
+                        end
+                        else if (temp_info_1[31:28]==4'b0010) // Middle
+                        begin
+                         if (temp_info_1[7:0]>=8'd40) // pokemon evolve
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+                            temp_info_1[23:16] <= 8'hF5; // HP reset 'd245 = 'hF5 
+                            temp_info_1[15:8]  <= 8'h71; //ATK reset 'd113 = 'h71
+                            temp_info_1[7:0]   <= 8'b0;  //exp reset
+                            flag_usedBracer <= 0;
+                            flag_finAction <= 1;
+                          end
+                         else 
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
+                            flag_usedBracer <= flag_usedBracer;
+                            flag_finAction <= 1;                             
+                          end   
+                        end
+                        else if (temp_info_1[31:28]==4'b0100) // Highest
+                        begin // only cost Candy but nothing change
+                          temp_error <= 4'b0;
+                          temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                          flag_finAction <= 1; 
+                        end
+                      end
+                else if (temp_info_1[27:24]==4'b1000) // Electric
+                      begin
+                        if (temp_info_1[31:28]==4'b0001) // Lowest
+                        begin
+                          if (temp_info_1[7:0]>=8'd11) // pokemon evolve
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+                            temp_info_1[23:16] <= 8'd182; // HP reset 'd182
+                            temp_info_1[15:8]  <= 8'd97; //ATK reset 'd97  
+                            temp_info_1[7:0]   <= 8'b0;  //exp reset
+                            flag_usedBracer <= 0;
+                            flag_finAction <= 1;
+                          end 
+                          else 
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'd15; //exp + 15
+                            flag_usedBracer <= flag_usedBracer;
+                            flag_finAction <= 1;    
+                          end
+                        end
+                        else if (temp_info_1[31:28]==4'b0010) // Middle
+                        begin
+                         if (temp_info_1[7:0]>=8'd36) // pokemon evolve
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+                            temp_info_1[23:16] <= 8'hEB; // HP reset 'd235 = 'hEB
+                            temp_info_1[15:8]  <= 8'h7C; //ATK reset 'd124 = 'h7C
+                            temp_info_1[7:0]   <= 8'b0;  //exp reset
+                            flag_usedBracer <= 0;
+                            flag_finAction <= 1;
+                          end
+                         else 
+                          begin
+                            temp_error <= 4'b0;
+                            temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                            temp_info_1[7:0]   <= temp_info_1[7:0] + 8'h0F; //exp + 15
+                            flag_usedBracer <= flag_usedBracer;
+                            flag_finAction <= 1;                             
+                          end   
+                        end
+                        else if (temp_info_1[31:28]==4'b0100) // Highest
+                        begin // only cost Candy but nothing change
+                          temp_error <= 4'b0;
+                          temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
+                          flag_finAction <= 1; 
+                        end
+                      end
+                else if (temp_info_1[27:24]==4'b0101) // Normal
+                      begin
+                        if (temp_info_1[7:0]>=8'h0E) // exp will fixed in high exp
+                        begin
+                          temp_info_1[7:0] <= 8'h1D;
+                          temp_error <= 4'b0;
                           temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                           flag_finAction <= 1; 
                         end
                         else 
                         begin
                           temp_info_1[7:0] <=  temp_info_1[7:0] + 8'h0F;
-                          temp_arror <= 4'b0;
+                          temp_error <= 4'b0;
                           temp_info_1[55:52] <= temp_info_1[55:52] - 4'b0001;
                           flag_finAction <= 1;  
                         end
                       end    
-                end
-            end  
-          else if (temp_D[3:0]==4'b1000)//---Bracer--------------------------------  
-            begin
-              if (temp_info_1[51:48]==4'b0) 
-                begin
-                  temp_arror <= 4'b1010;
-                  temp_info_1 <= temp_info_1;
-                  flag_finAction <= 1;    
-                end
-               else 
-                begin
-                  if (flag_usedBracer) // the effect can't stack 
-                    begin
-                      temp_arror <= 4'b0;
-                      temp_info_1[51:48] <= temp_info_1[51:48] - 4'b0001;
-                      flag_finAction <= 1; 
-                    end
-                  else
-                    begin
-                      temp_arror <= 4'b0;
-                      temp_info_1[51:48] <= temp_info_1[51:48] - 4'b0001;
-                      temp_info_1[15:8]  <= temp_info_1[15:8]  + 8'd32;
-                      flag_usedBracer <= 1;
-                      flag_finAction <= 1; 
-                    end
-                end
-            end
+                   end
+               end  
+               else if (temp_D[3:0]==4'b1000)//---Bracer--------------------------------  
+               begin
+                   if (temp_info_1[51:48]==4'b0) begin
+                     temp_error <= 4'b1010;
+                     temp_info_1 <= temp_info_1;
+                     flag_finAction <= 1;    
+                   end
+                    else begin
+                      if (flag_usedBracer) // the effect can't stack 
+                      begin
+                       temp_error <= 4'b0;
+                       temp_info_1[51:48] <= temp_info_1[51:48] - 4'b0001;
+                       flag_finAction <= 1; 
+                      end
+                      else
+                      begin
+                       temp_error <= 4'b0;
+                       temp_info_1[51:48] <= temp_info_1[51:48] - 4'b0001;
+                       temp_info_1[15:8]  <= temp_info_1[15:8]  + 8'd32;
+                       flag_usedBracer <= 1;
+                       flag_finAction <= 1; 
+                      end
+                   end
+               end
           else if (temp_D[3:0]==4'b1001) //---Water Stone-------------------------------
-            begin
-              if (temp_info_1[47:46]!=2'b01) // you don't have water stone
                 begin
-                  temp_arror <= 4'b1010;
-                  temp_info_1 <= temp_info_1;
-                  flag_finAction <= 1;    
-                end
-              else 
-                begin
-                  if (temp_info_1[27:24]==4'b0101) // you have Eevee
-                    begin
-                      if (temp_info_1[7:0]==8'd29)  // enough EXP
-                        begin
-                          temp_info_1[47:46] <= 2'b0;    // stone bec. empty
-                          temp_info_1[31:28] <= 4'b0100; // stage up to Highest
-                          temp_info_1[27:24] <= 4'b0100; // become water Eevee
-                          temp_info_1[23:16] <= 8'd245;   // HP reset
-                          temp_info_1[15:8]  <= 8'd113;   //ATK reset
-                          temp_info_1[7:0]   <= 8'b0;    //exp reset
-                          flag_usedBracer <= 0;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1;                        
-                        end
-                      else // u don't have enough EXP but still cost stone
-                        begin
-                          temp_info_1[47:46] <= 2'b0;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1;  
-                        end
-                    end
-                  else // yout don't have Eevee
-                    begin
-                      temp_info_1[47:46] <= 2'b00;
-                      temp_arror <= 4'b0;
-                      flag_finAction <= 1;   
-                    end   
-                end 
-            end
-          else if (temp_D[3:0]==4'b1010)//---Fire Stone-------------------------------
-            begin
-                if (temp_info_1[47:46]!=2'b10) // you don't have fire stone
+                  if (temp_info_1[47:46]!=2'b01) // you don't have water stone
                   begin
-                    temp_arror <= 4'b1010;
+                    temp_error <= 4'b1010;
                     temp_info_1 <= temp_info_1;
                     flag_finAction <= 1;    
                   end
-                else 
-                  begin
+                   else begin
+                   if (temp_info_1[27:24]==4'b0101) // you have Eevee
+                   begin
+                     if (temp_info_1[7:0]==8'h1D)  // enough EXP
+                     begin
+                       temp_info_1[47:46] <= 2'b0; // stone bec. empty
+                       temp_info_1[31:28] <= 4'b0100; // stage up to Highest
+                       temp_info_1[27:24] <= 4'b0100; // become water Eevee
+                       temp_info_1[23:16] <= 8'hF5;   // HP reset 'd245 = 'hF5 
+                       temp_info_1[15:8]  <= 8'h71;   //ATK reset 'd113 = 'h71
+                       temp_info_1[7:0]   <= 8'b0;    //exp reset
+                       flag_usedBracer <= 0;
+                       temp_error <= 4'b0;
+                       flag_finAction <= 1;                        
+                     end
+                     else // u don't have enough EXP but still cost stone
+                     begin
+                       temp_info_1[47:46] <= 2'b0;
+                       temp_error <= 4'b0;
+                       flag_finAction <= 1;  
+                     end
+                   end
+                   else // yout don't have Eevee
+                   begin
+                      temp_info_1[47:46] <= 2'b00;
+                      temp_error <= 4'b0;
+                      flag_finAction <= 1;   
+                   end   
+                  end 
+                end
+          else if (temp_D[3:0]==4'b1010)//---Fire Stone-------------------------------
+               begin
+                   if (temp_info_1[47:46]!=2'b10) // you don't have fire stone
+                   begin
+                     temp_error <= 4'b1010;
+                     temp_info_1 <= temp_info_1;
+                     flag_finAction <= 1;    
+                   end
+                    else 
+                    begin
                     if (temp_info_1[27:24]==4'b0101) // you have Eevee
                       begin
                         if (temp_info_1[7:0]==8'h1D) // enough EXP
@@ -1518,504 +1514,504 @@ begin
                             temp_info_1[47:46] <= 2'b0; // stone bec. empty
                             temp_info_1[31:28] <= 4'b0100; // stage up to Highest
                             temp_info_1[27:24] <= 4'b0010; // become Fire Eevee
-                            temp_info_1[23:16] <= 8'd225;  // HP reset 
-                            temp_info_1[15:8]  <= 8'd127;  //ATK reset 
+                            temp_info_1[23:16] <= 8'hE1;   // HP reset 'd225 = 'hE1 
+                            temp_info_1[15:8]  <= 8'h7F;   //ATK reset 'd127 = 'h7F
                             temp_info_1[7:0]   <= 8'b0;    //exp reset
                             flag_usedBracer <= 0;
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             flag_finAction <= 1;                        
                           end
                         else // u don't have enough EXP but still cost stone
                           begin
                             temp_info_1[47:46] <= 2'b0;
-                            temp_arror <= 4'b0;
+                            temp_error <= 4'b0;
                             flag_finAction <= 1;  
                           end
                       end
-                    else // yout don't have Eevee
+                      else // yout don't have Eevee
                       begin
                          temp_info_1[47:46] <= 2'b0;
-                         temp_arror <= 4'b0;
+                         temp_error <= 4'b0;
                          flag_finAction <= 1;   
                       end   
-                  end 
-            end
+                   end 
+               end
           else if (temp_D[3:0]==4'b1100) //---Thunder Stone--------------------------
-            begin
-              if (temp_info_1[47:46]!=2'b11) // you don't have thunder stone
-                begin
-                  temp_arror <= 4'b1010;
-                  temp_info_1 <= temp_info_1;
-                  flag_finAction <= 1;    
-                end
-              else 
-                begin
-                  if (temp_info_1[27:24]==4'b0101) // you have Eevee
+               begin
+                   if (temp_info_1[47:46]!=2'b11) // you don't have thunder stone
+                   begin
+                     temp_error <= 4'b1010;
+                     temp_info_1 <= temp_info_1;
+                     flag_finAction <= 1;    
+                   end
+                    else 
                     begin
-                      if (temp_info_1[7:0]==8'd29) // enough EXP
+                      if (temp_info_1[27:24]==4'b0101) // you have Eevee
+                      begin
+                        if (temp_info_1[7:0]==8'h1D) // enough EXP
                         begin
                           temp_info_1[47:46] <= 2'b00; // stone bec. empty
                           temp_info_1[31:28] <= 4'b0100; // stage up to Highest
                           temp_info_1[27:24] <= 4'b1000; // become Thunder Eevee   
-                          temp_info_1[23:16] <= 8'd235;   // HP reset
-                          temp_info_1[15:8]  <= 8'd124;   //ATK reset
+                          temp_info_1[23:16] <= 8'hEB;   // HP reset 'd235 = 'hEB
+                          temp_info_1[15:8]  <= 8'h7C;   //ATK reset 'd124 = 'h7C
                           temp_info_1[7:0]   <= 8'b0;    //exp reset
                           flag_usedBracer <= 0;
-                          temp_arror <= 4'b0;
+                          temp_error <= 4'b0;
                           flag_finAction <= 1;                        
                         end
-                      else // u don't have enough EXP but still cost stone
+                        else // u don't have enough EXP but still cost stone
                         begin
                           temp_info_1[47:46] <= 2'b00;
-                          temp_arror <= 4'b0;
+                          temp_error <= 4'b0;
                           flag_finAction <= 1;  
                         end
-                    end
-                  else // yout don't have Eevee
-                    begin
-                       temp_info_1[47:46] <= 2'b00;
-                       temp_arror <= 4'b0;
-                       flag_finAction <= 1;   
-                    end   
-                end 
-            end
-        end
+                      end
+                      else // yout don't have Eevee
+                      begin
+                         temp_info_1[47:46] <= 2'b00;
+                         temp_error <= 4'b0;
+                         flag_finAction <= 1;   
+                      end   
+                   end 
+               end
+       end
       end
     else if (c_s==S_Attack && flag_finAction==0) 
+    begin
+      if (temp_info_1[31:0]== 0 || temp_info_2[31:0]== 0) // someone doesn't have pokemon
       begin
-        if (temp_info_1[31:0]== 0 || temp_info_2[31:0]== 0) // someone doesn't have pokemon
-          begin
-            temp_arror <= 4'b0110;
+        temp_error <= 4'b0110;
+        flag_finAction <= 1; 
+      end
+      else if (temp_info_1[23:16]==8'b0 || temp_info_2[23:16]==8'b0) // pokemon HP is 0
+      begin 
+        temp_error <= 4'b1101;
+        flag_finAction <= 1;  
+      end   
+      else // start attack
+      begin
+      if (temp_info_1[31:28]==4'b0100) // attacker is highest so don't change anything
+      begin
+        if (flag_usedBracer) 
+        begin
+          temp_info_1[15:8] <= temp_info_1[15:8] - 'd32;
+          flag_usedBracer <= 0;
+          flag_finAction <= 1; 
+        end
+        else
+          begin 
+            temp_info_1 <= temp_info_1;
             flag_finAction <= 1; 
           end
-        else if (temp_info_1[23:16]==8'b0 || temp_info_2[23:16]==8'b0) // pokemon HP is 0
-          begin 
-            temp_arror <= 4'b1101;
-            flag_finAction <= 1;  
-          end   
-        else // start attack
-          begin
-            if (temp_info_1[31:28]==4'b0100) // attacker is highest so don't change anything
-              begin
-                if (flag_usedBracer) 
-                  begin
-                    temp_info_1[15:8] <= temp_info_1[15:8] - 'd32;
-                    flag_usedBracer <= 0;
-                    flag_finAction <= 1; 
-                  end
-                else
-                  begin 
-                    temp_info_1 <= temp_info_1;
-                    flag_finAction <= 1; 
-                  end
-              end
-            else if (temp_info_1[31:28]==4'b0010)// attacker is middle
-              begin
-                if (temp_info_2[31:28]==4'b0001) // opponent is lowest Att. will gain 16exp
-                 begin
-                  if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd47) 
-                    begin// Att. is grass &'d63 can evolve 
-                       temp_arror <= 4'b0;
-                       temp_info_1[31:28] <= 4'b0100; // stage up to Highest
-                       temp_info_1[23:16] <= 8'd254; // HP reset
-                       temp_info_1[15:8]  <= 8'd123; //ATK reset
-                       temp_info_1[7:0]   <= 8'b0;  //exp reset
-                       flag_usedBracer <= 0;
-                       flag_finAction <= 1;       
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd43) 
-                    begin // Att. is fire 'd59 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd225; // HP reset 
-                      temp_info_1[15:8]  <= 8'd127; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                 
-                    end
-                  else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd39)
-                    begin // Att. is watter 'd55 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd245; // HP reset
-                      temp_info_1[15:8]  <= 8'd113; //ATK reset
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd35) 
-                    begin // Att. is electric 'd51 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd235; // HP reset 
-                      temp_info_1[15:8]  <= 8'd124; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;              
-                    end              
-                  else
-                    begin // can't evolve
-                      if (flag_usedBracer) 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                 end  
-                else if (temp_info_2[31:28]==4'b0010) // opponent is middle Att. will gain 24exp
-                 begin
-                   if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd39) 
-                    begin// Att. is grass &'d63 can evolve 
-                       temp_arror <= 4'b0;
-                       temp_info_1[31:28] <= 4'b0100; // stage up to Highest
-                       temp_info_1[23:16] <= 8'd254; // HP reset
-                       temp_info_1[15:8]  <= 8'd123; //ATK reset
-                       temp_info_1[7:0]   <= 8'b0;  //exp reset
-                       flag_usedBracer <= 0;
-                       flag_finAction <= 1;       
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd35) 
-                    begin // Att. is fire 'd59 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd225; // HP reset 
-                      temp_info_1[15:8]  <= 8'd127; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                 
-                    end
-                  else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd31)
-                    begin // Att. is watter 'd55 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd245; // HP reset  
-                      temp_info_1[15:8]  <= 8'd113; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd27) 
-                    begin // Att. is electric 'd51 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd235; // HP reset 
-                      temp_info_1[15:8]  <= 8'd124; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;              
-                    end              
-                  else
-                    begin // can't evolve
-                      if (flag_usedBracer) 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                 end
-                else if (temp_info_2[31:28]==4'b0100) // opponent is highest Att. will gain 32exp
-                 begin
-                  if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd31) 
-                    begin// Att. is grass &'d63 can evolve 
-                       temp_arror <= 4'b0;
-                       temp_info_1[31:28] <= 4'b0100; // stage up to Highest
-                       temp_info_1[23:16] <= 8'd254; // HP reset 
-                       temp_info_1[15:8]  <= 8'd123; //ATK reset 
-                       temp_info_1[7:0]   <= 8'b0;  //exp reset
-                       flag_usedBracer <= 0;
-                       flag_finAction <= 1;       
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd27) 
-                    begin // Att. is fire 'd59 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd225; // HP reset 
-                      temp_info_1[15:8]  <= 8'd127; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                 
-                    end
-                  else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd23)
-                    begin // Att. is watter 'd55 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd245; // HP reset  
-                      temp_info_1[15:8]  <= 8'd113; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd19) 
-                    begin // Att. is electric 'd51 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0100;// stage up to Highest
-                      temp_info_1[23:16] <= 8'd235; // HP reset
-                      temp_info_1[15:8]  <= 8'd124; //ATK reset
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;              
-                    end              
-                  else
-                    begin // can't evolve
-                      if (flag_usedBracer) 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd32;  //exp + 32
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd32;  //exp + 32
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                 end
-              end 
-            else if (temp_info_1[31:28]==4'b0001) // attaker is lowest
-              begin
-                if (temp_info_2[31:28]==4'b0001) // opponent is lowest Att. will gain 16exp
-                 begin
-                  if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd16) 
-                    begin// Att. is grass &'d32 can evolve 
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd192; // HP reset
-                      temp_info_1[15:8]  <= 8'd94; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;      
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd14) 
-                    begin // Att. is fire 'd30 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd177; // HP reset 
-                      temp_info_1[15:8]  <= 8'd96; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                
-                    end
-                  else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd12)
-                    begin // Att. is watter 'd28 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd187; // HP reset 
-                      temp_info_1[15:8]  <= 8'd89; //ATK reset  
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;         
-                    end
-                  else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd10) 
-                    begin // Att. is electric 'd26 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd182; // HP reset 
-                      temp_info_1[15:8]  <= 8'd97; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b0101 && temp_info_1[7:0]>=8'd13) 
-                    begin // Att. is Normal will fix at 'd29
-                    if (flag_usedBracer) 
-                      begin
-                        temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                        temp_info_1[7:0] <= 8'h1D;
-                        temp_arror <= 4'b0;
-                        flag_finAction <= 1;
-                        flag_usedBracer <= 0;
-                      end
-                    else 
-                      begin
-                        temp_info_1[7:0] <= 8'h1D;
-                        temp_arror <= 4'b0;
-                        flag_finAction <= 1; 
-                      end   
-                    end                    
-                  else
-                    begin // can't evolve
-                      if (flag_usedBracer) 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                 end 
-                else if (temp_info_2[31:28]==4'b0010) // opponent is middle Att. will gain 24exp
-                 begin
-                   if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd8) 
-                    begin// Att. is grass &'d32 can evolve 
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd192; // HP reset
-                      temp_info_1[15:8]  <= 8'd94;  //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;   //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;      
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd6) 
-                    begin // Att. is fire 'd30 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd177; // HP reset  
-                      temp_info_1[15:8]  <= 8'd96 ; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                
-                    end
-                  else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd4)
-                    begin // Att. is watter 'd28 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd187; // HP reset 
-                      temp_info_1[15:8]  <= 8'd89; //ATK reset  
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;         
-                    end
-                  else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd2) 
-                    begin // Att. is electric 'd26 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd182; // HP reset 
-                      temp_info_1[15:8]  <= 8'd97 ; //ATK reset
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b0101 && temp_info_1[7:0]>=8'd5) 
-                    begin // Att. is Normal will fix at 'd29
-                      if (flag_usedBracer) 
-                        begin
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0] <= 8'h1D;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1;
-                          flag_usedBracer <= 0;
-                        end
-                      else 
-                        begin
-                          temp_info_1[7:0] <= 8'h1D;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1; 
-                        end   
-                    end                    
-                  else
-                    begin // can't evolve
-                      if (flag_usedBracer) 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                      else 
-                        begin
-                          temp_arror <= 4'b0;
-                          temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
-                          flag_usedBracer <= 0;
-                          flag_finAction <= 1; 
-                        end
-                    end
-                 end
-                else if (temp_info_2[31:28]==4'b0100) // opponent is highest Att. will gain 32exp
-                 begin
-                   if (temp_info_1[27:24]==4'b0001) 
-                    begin// Att. is grass &'d32 can evolve 
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd192; // HP reset
-                      temp_info_1[15:8]  <= 8'd94; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;      
-                    end 
-                  else if (temp_info_1[27:24]==4'b0010) 
-                    begin // Att. is fire 'd30 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd177; // HP reset
-                      temp_info_1[15:8]  <= 8'd96; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;                
-                    end
-                  else if (temp_info_1[27:24]==4'b0100)
-                    begin // Att. is watter 'd28 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd187; // HP reset
-                      temp_info_1[15:8]  <= 8'd89; //ATK reset 
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;         
-                    end
-                  else if (temp_info_1[27:24]==4'b1000) 
-                    begin // Att. is electric 'd26 can evolve
-                      temp_arror <= 4'b0;
-                      temp_info_1[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_1[23:16] <= 8'd182; // HP reset 
-                      temp_info_1[15:8]  <= 8'd97; //ATK reset  
-                      temp_info_1[7:0]   <= 8'b0;  //exp reset
-                      flag_usedBracer <= 0;
-                      flag_finAction <= 1;           
-                    end
-                  else if (temp_info_1[27:24]==4'b0101) 
-                    begin // Att. is Normal will fix at 'd29
-                      if (flag_usedBracer) 
-                        begin
-                          temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
-                          temp_info_1[7:0] <= 8'h1D;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1;
-                          flag_usedBracer <= 0;
-                        end
-                      else 
-                        begin
-                          temp_info_1[7:0] <= 8'h1D;
-                          temp_arror <= 4'b0;
-                          flag_finAction <= 1; 
-                        end   
-                    end                    
-                 end 
-              end
-          end
       end
+      else if (temp_info_1[31:28]==4'b0010)// attacker is middle
+      begin
+        if (temp_info_2[31:28]==4'b0001) // opponent is lowest Att. will gain 16exp
+         begin
+          if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd47) 
+            begin// Att. is grass &'d63 can evolve 
+               temp_error <= 4'b0;
+               temp_info_1[31:28] <= 4'b0100; // stage up to Highest
+               temp_info_1[23:16] <= 8'hFE; // HP reset 'd254 = 'hFE 
+               temp_info_1[15:8]  <= 8'h7B; //ATK reset 'd123 = 'h7B
+               temp_info_1[7:0]   <= 8'b0;  //exp reset
+               flag_usedBracer <= 0;
+               flag_finAction <= 1;       
+            end 
+          else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd43) 
+            begin // Att. is fire 'd59 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hE1; // HP reset 'd225 = 'hE1 
+              temp_info_1[15:8]  <= 8'h7F; //ATK reset 'd127 = 'h7F
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                 
+            end
+          else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd39)
+            begin // Att. is watter 'd55 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hF5; // HP reset 'd245 = 'hF5 
+              temp_info_1[15:8]  <= 8'h71; //ATK reset 'd113 = 'h71
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd35) 
+            begin // Att. is electric 'd51 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hEB; // HP reset 'd235 = 'hEB
+              temp_info_1[15:8]  <= 8'h7C; //ATK reset 'd124 = 'h7C
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;              
+            end              
+          else
+            begin // can't evolve
+              if (flag_usedBracer) 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+              else 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+            end
+         end  
+        else if (temp_info_2[31:28]==4'b0010) // opponent is middle Att. will gain 24exp
+         begin
+           if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd39) 
+            begin// Att. is grass &'d63 can evolve 
+               temp_error <= 4'b0;
+               temp_info_1[31:28] <= 4'b0100; // stage up to Highest
+               temp_info_1[23:16] <= 8'hFE; // HP reset 'd254 = 'hFE 
+               temp_info_1[15:8]  <= 8'h7B; //ATK reset 'd123 = 'h7B
+               temp_info_1[7:0]   <= 8'b0;  //exp reset
+               flag_usedBracer <= 0;
+               flag_finAction <= 1;       
+            end 
+          else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd35) 
+            begin // Att. is fire 'd59 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hE1; // HP reset 'd225 = 'hE1 
+              temp_info_1[15:8]  <= 8'h7F; //ATK reset 'd127 = 'h7F
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                 
+            end
+          else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd31)
+            begin // Att. is watter 'd55 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hF5; // HP reset 'd245 = 'hF5 
+              temp_info_1[15:8]  <= 8'h71; //ATK reset 'd113 = 'h71
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd27) 
+            begin // Att. is electric 'd51 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hEB; // HP reset 'd235 = 'hEB
+              temp_info_1[15:8]  <= 8'h7C; //ATK reset 'd124 = 'h7C
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;              
+            end              
+          else
+            begin // can't evolve
+              if (flag_usedBracer) 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+              else 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+            end
+         end
+        else if (temp_info_2[31:28]==4'b0100) // opponent is highest Att. will gain 32exp
+         begin
+          if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd31) 
+            begin// Att. is grass &'d63 can evolve 
+               temp_error <= 4'b0;
+               temp_info_1[31:28] <= 4'b0100; // stage up to Highest
+               temp_info_1[23:16] <= 8'hFE; // HP reset 'd254 = 'hFE 
+               temp_info_1[15:8]  <= 8'h7B; //ATK reset 'd123 = 'h7B
+               temp_info_1[7:0]   <= 8'b0;  //exp reset
+               flag_usedBracer <= 0;
+               flag_finAction <= 1;       
+            end 
+          else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd27) 
+            begin // Att. is fire 'd59 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hE1; // HP reset 'd225 = 'hE1 
+              temp_info_1[15:8]  <= 8'h7F; //ATK reset 'd127 = 'h7F
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                 
+            end
+          else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd23)
+            begin // Att. is watter 'd55 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hF5; // HP reset 'd245 = 'hF5 
+              temp_info_1[15:8]  <= 8'h71; //ATK reset 'd113 = 'h71
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd19) 
+            begin // Att. is electric 'd51 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0100;// stage up to Highest
+              temp_info_1[23:16] <= 8'hEB; // HP reset 'd235 = 'hEB
+              temp_info_1[15:8]  <= 8'h7C; //ATK reset 'd124 = 'h7C
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;              
+            end              
+          else
+            begin // can't evolve
+              if (flag_usedBracer) 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd32;  //exp + 32
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+              else 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd32;  //exp + 32
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+            end
+         end
+      end 
+      else if (temp_info_1[31:28]==4'b0001) // attaker is lowest
+      begin
+        if (temp_info_2[31:28]==4'b0001) // opponent is lowest Att. will gain 16exp
+         begin
+          if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd16) 
+            begin// Att. is grass &'d32 can evolve 
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hC0; // HP reset 'd192 = 'hC0 
+              temp_info_1[15:8]  <= 8'h5E; //ATK reset 'd94  = 'h5E
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;      
+            end 
+          else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd14) 
+            begin // Att. is fire 'd30 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB1; // HP reset 'd177 = 'hB1 
+              temp_info_1[15:8]  <= 8'h60; //ATK reset 'd96  = 'h60
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                
+            end
+          else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd12)
+            begin // Att. is watter 'd28 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hBB; // HP reset 'd187 = 'hBB 
+              temp_info_1[15:8]  <= 8'h59; //ATK reset 'd89  = 'h59
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;         
+            end
+          else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd10) 
+            begin // Att. is electric 'd26 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB6; // HP reset 'd182 = 'hB6 
+              temp_info_1[15:8]  <= 8'h61; //ATK reset 'd97  = 'h61
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b0101 && temp_info_1[7:0]>=8'd13) 
+            begin // Att. is Normal will fix at 'd29
+            if (flag_usedBracer) 
+              begin
+                temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                temp_info_1[7:0] <= 8'h1D;
+                temp_error <= 4'b0;
+                flag_finAction <= 1;
+                flag_usedBracer <= 0;
+              end
+            else 
+              begin
+                temp_info_1[7:0] <= 8'h1D;
+                temp_error <= 4'b0;
+                flag_finAction <= 1; 
+              end   
+            end                    
+          else
+            begin // can't evolve
+              if (flag_usedBracer) 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+              else 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd16;  //exp + 16
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+            end
+         end 
+        else if (temp_info_2[31:28]==4'b0010) // opponent is middle Att. will gain 24exp
+         begin
+           if (temp_info_1[27:24]==4'b0001 && temp_info_1[7:0]>=8'd8) 
+            begin// Att. is grass &'d32 can evolve 
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hC0; // HP reset 'd192 = 'hC0 
+              temp_info_1[15:8]  <= 8'h5E; //ATK reset 'd94  = 'h5E
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;      
+            end 
+          else if (temp_info_1[27:24]==4'b0010 && temp_info_1[7:0]>=8'd6) 
+            begin // Att. is fire 'd30 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB1; // HP reset 'd177 = 'hB1 
+              temp_info_1[15:8]  <= 8'h60; //ATK reset 'd96  = 'h60
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                
+            end
+          else if (temp_info_1[27:24]==4'b0100 && temp_info_1[7:0]>=8'd4)
+            begin // Att. is watter 'd28 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hBB; // HP reset 'd187 = 'hBB 
+              temp_info_1[15:8]  <= 8'h59; //ATK reset 'd89  = 'h59
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;         
+            end
+          else if (temp_info_1[27:24]==4'b1000 && temp_info_1[7:0]>=8'd2) 
+            begin // Att. is electric 'd26 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB6; // HP reset 'd182 = 'hB6 
+              temp_info_1[15:8]  <= 8'h61; //ATK reset 'd97  = 'h61
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b0101 && temp_info_1[7:0]>=8'd5) 
+            begin // Att. is Normal will fix at 'd29
+              if (flag_usedBracer) 
+                begin
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0] <= 8'h1D;
+                  temp_error <= 4'b0;
+                  flag_finAction <= 1;
+                  flag_usedBracer <= 0;
+                end
+              else 
+                begin
+                  temp_info_1[7:0] <= 8'h1D;
+                  temp_error <= 4'b0;
+                  flag_finAction <= 1; 
+                end   
+            end                    
+          else
+            begin // can't evolve
+              if (flag_usedBracer) 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+              else 
+                begin
+                  temp_error <= 4'b0;
+                  temp_info_1[7:0]   <= temp_info_1[7:0]  + 8'd24;  //exp + 24
+                  flag_usedBracer <= 0;
+                  flag_finAction <= 1; 
+                end
+            end
+         end
+        else if (temp_info_2[31:28]==4'b0100) // opponent is highest Att. will gain 32exp
+         begin
+           if (temp_info_1[27:24]==4'b0001) 
+            begin// Att. is grass &'d32 can evolve 
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hC0; // HP reset 'd192 = 'hC0 
+              temp_info_1[15:8]  <= 8'h5E; //ATK reset 'd94  = 'h5E
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;      
+            end 
+          else if (temp_info_1[27:24]==4'b0010) 
+            begin // Att. is fire 'd30 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB1; // HP reset 'd177 = 'hB1 
+              temp_info_1[15:8]  <= 8'h60; //ATK reset 'd96  = 'h60
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;                
+            end
+          else if (temp_info_1[27:24]==4'b0100)
+            begin // Att. is watter 'd28 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hBB; // HP reset 'd187 = 'hBB 
+              temp_info_1[15:8]  <= 8'h59; //ATK reset 'd89  = 'h59
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;         
+            end
+          else if (temp_info_1[27:24]==4'b1000) 
+            begin // Att. is electric 'd26 can evolve
+              temp_error <= 4'b0;
+              temp_info_1[31:28] <= 4'b0010;// stage up to Middle
+              temp_info_1[23:16] <= 8'hB6; // HP reset 'd182 = 'hB6 
+              temp_info_1[15:8]  <= 8'h61; //ATK reset 'd97  = 'h61
+              temp_info_1[7:0]   <= 8'b0;  //exp reset
+              flag_usedBracer <= 0;
+              flag_finAction <= 1;           
+            end
+          else if (temp_info_1[27:24]==4'b0101) 
+            begin // Att. is Normal will fix at 'd29
+              if (flag_usedBracer) 
+                begin
+                  temp_info_1[15:8]  <= temp_info_1[15:8] - 8'd32; //ATK - 32
+                  temp_info_1[7:0] <= 8'h1D;
+                  temp_error <= 4'b0;
+                  flag_finAction <= 1;
+                  flag_usedBracer <= 0;
+                end
+              else 
+                begin
+                  temp_info_1[7:0] <= 8'h1D;
+                  temp_error <= 4'b0;
+                  flag_finAction <= 1; 
+                end   
+            end                    
+         end 
+      end
+      end
+    end
     else if (c_s==S_sav_p2)
       begin
         flag_finAction <= 0;
@@ -2030,12 +2026,12 @@ begin
       end  
     else if (c_s==S_MENU)
       begin
-        temp_arror <= 0;
+        temp_error <= 0;
       end
     else if(c_s==S_IDLE)
       begin
         temp_info_1 <= 0;
-        temp_arror <= 0;
+        temp_error <= 0;
       end  
 end
 
@@ -2083,8 +2079,8 @@ begin
                   if (temp_info_2[7:0]>=8'd24) //def. Lv. up
                     begin
                       temp_info_2[31:28] <= 4'b0010;// stage up to Middle
-                      temp_info_2[23:16] <= 8'd192;  // HP reset
-                      temp_info_2[15:8]  <= 8'd94;  //ATK reset 
+                      temp_info_2[23:16] <= 8'hC0;  // HP reset 'd192 = 'hC0 
+                      temp_info_2[15:8]  <= 8'h5E;  //ATK reset 'd94  = 'h5E
                       temp_info_2[7:0]   <= 8'b0;   //exp reset
                       flag_fin_attack <= 1;
                     end
@@ -3655,6 +3651,25 @@ begin
 end
 
 
+//================================================================
+//   Flag
+//================================================================
+always_ff @(posedge clk or negedge inf.rst_n) 
+begin
+    if (!inf.rst_n) 
+        flag_changeID <= 0;        
+    else if(c_s==S_output)
+      begin
+        if (inf.id_valid) 
+          begin
+            flag_changeID <= 1;    
+          end
+      end
+    else if (c_s==S_loading) 
+      begin
+        flag_changeID <= 0; 
+      end
+end
 
 //================================================================
 //                     CCCCCC  
@@ -3694,9 +3709,9 @@ begin : C_r_wb
      end    
    else 
      begin
-      if(c_s==S_saving) 
+      if(c_s==S_saving) //not yet
           inf.C_r_wb <= 1'b0;
-      else if(c_s==S_sav_p2) 
+      else if(c_s==S_sav_p2) //not yet
           inf.C_r_wb <= 1'b0;
       else 
           inf.C_r_wb <= 1'b1;  
@@ -3760,18 +3775,18 @@ begin : C_in_valid
           end
       end 
     else if (c_s==S_OPTION_1) 
-      begin
-        flag_Cinvalid <= 0;
-      end
-    else if (c_s==S_OPTION_2) 
-      begin
-        flag_Cinvalid <= 0;
-      end 
+    begin
+      flag_Cinvalid <= 0;
+    end
+     else if (c_s==S_OPTION_2) 
+    begin
+      flag_Cinvalid <= 0;
+    end 
     else
-      begin
-         inf.C_in_valid <= 0;
-         flag_Cinvalid <= 0;   
-      end
+    begin
+       inf.C_in_valid <= 0;
+       flag_Cinvalid <= 0;   
+    end
 end
 
 // WRITE
@@ -3796,6 +3811,7 @@ begin : C_data_w
                 inf.C_data_w[23:16] <= temp_info_2[47:40]; 
                 inf.C_data_w[15:8]  <= temp_info_2[55:48]; 
                 inf.C_data_w[7:0]   <= temp_info_2[63:56]; 
+ 
               end
             else if (flag_usedBracer==0) 
               begin
@@ -3933,7 +3949,7 @@ begin
     case (n_s)
         S_output: 
         begin
-          if (temp_arror!=0) 
+          if (temp_error!=0) 
           begin
             inf.out_info <= 0; 
           end
@@ -3942,6 +3958,7 @@ begin
               inf.out_info <= info_for_out;
             end  
         end
+        
         S_MENU  : inf.out_info <= 0; 
     default: inf.out_info <= 0; 
     endcase
@@ -3952,7 +3969,7 @@ always_ff @(posedge clk or negedge inf.rst_n)
 begin 
    if (~inf.rst_n) 
        inf.complete <= 0;
-   else if(temp_arror==0)
+   else if(temp_error==0)
        inf.complete <= 1;
    else 
        inf.complete <= 0;
@@ -3968,11 +3985,11 @@ begin
    else 
    begin
     case (c_s)
-      S_UseItem: inf.err_msg <= temp_arror;
-      S_Sell :   inf.err_msg <= temp_arror;
-      S_Buy :    inf.err_msg <= temp_arror;
-      S_Attack:  inf.err_msg <= temp_arror;
-      S_sav_p2:  inf.err_msg <= temp_arror;
+      S_UseItem: inf.err_msg <= temp_error;
+      S_Sell :   inf.err_msg <= temp_error;
+      S_Buy :    inf.err_msg <= temp_error;
+      S_Attack:  inf.err_msg <= temp_error;
+      S_sav_p2:  inf.err_msg <= temp_error;
       S_Deposit: inf.err_msg <= 0; 
       S_Check:   inf.err_msg <= 0; 
       default:   inf.err_msg <= 0; 
